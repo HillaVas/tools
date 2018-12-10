@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ObjectBoxTest</string>
+
+
+    <string name="error_wrong_passed_data">passed data is wrong</string>
+    <string name="navigation_drawer_heder1">املاک شایان </string>
+    <string name="navigation_drawer_heder1_mail">shayan.amlak@gmail.com </string>
+    <string name="main_icon_name_aparteman_ejare"> اجاره آپارتمان</string>
+    <string name="main_icon_name_aparteman_forush"> فروش آپارتمان</string>
+    <string name="main_icon_name_vila_ejare"> اجاره ویلایی</string>
+    <string name="main_icon_name_vila_forush"> فروش ویلایی</string>
+    <string name="main_icon_name_zamin">زمین</string>
+</resources>

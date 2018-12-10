@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#e13939</color>
+    <color name="colorPrimaryDark">#c03231</color>
+    <color name="colorAccent">#d31919</color>
+    <color name="colorBackground">#f5f4f4</color>
+    <color name="semiGrey">#cecdcd</color>
+    <color name="colorDefaultActionSinglePlayer">#8c8c8d</color>
+    <color name="colorDefaultActionSinglePlayerlight">#e2e3ed</color>
+    <color name="colorLineActionSinglePlayer">#f5f4f4</color>
+    <color name="colorBackgroundActionSinglePlayer">#ffffff</color>
+    <color name="textColorTitleActionSinglePlayer">#000000</color>
+    <color name="colorSelectedSinglePlayer">#e13939</color>
+    <color name="colorSingleComment">#15c8cc</color>
+    <color name="colorSemiTransparent">#c5ffffff</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#3b2828</color>
+    <color name="colorHintEditTextNewComment">#3a3a3a</color>
+    <color name="colorLikeRed">#e13939</color>
+    <color name="colorBackAll">#ddd9da</color>
+    <color name="colorCreatePlayList">#3c000000</color>
+
+    <color name="colorTransparent">#00ffffff</color>
+</resources>

@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="orange">3dp</dimen>
+    <dimen name="yellow">6dp</dimen>
+    <dimen name="yellow_dark">1dp</dimen>
+    <dimen name="green_dark">10dp</dimen>
+    <dimen name="grey">12dp</dimen>
+    <dimen name="blue_light">16dp</dimen>
+    <dimen name="blue_dark">20dp</dimen>
+    <dimen name="blue">24dp</dimen>
+    <dimen name="pink">32dp</dimen>
+    <dimen name="green_light">36dp</dimen>
+    <dimen name="purple_light">48dp</dimen>
+    <dimen name="purple_dark">56dp</dimen>
+    <dimen name="red">72dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="design_navigation_icon_size" tools:override="true">30dp</dimen>
+    <dimen name="design_navigation_text_size" tools:override="true">50sp</dimen>
+
+
+</resources>
