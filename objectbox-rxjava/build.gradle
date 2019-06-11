@@ -1,0 +1,62 @@
+apply plugin: 'java'
+//apply plugin: 'maven'
+//apply plugin: 'signing'
+//
+//group = 'io.objectbox'
+//version = '0.9.9-SNAPSHOT'
+//sourceCompatibility = 1.7
+
+dependencies {
+    def objectBoxVersion = '1.4.2'
+    implementation "io.objectbox:objectbox-java:1.5.0"
+    implementation "io.reactivex.rxjava2:rxjava:2.1.6"
+}
+
+//javadoc {
+//    failOnError = false
+//    title = "ObjectBox RxJava2 ${version} API"
+//    excludes = [] // Unfinished APIs if any
+//    options.bottom = 'Available under the Apache License, Version 2.0 - <i>Copyright &#169; 2017 <a href="http://greenrobot.org/">greenrobot/ObjectBox</a>. All Rights Reserved.</i>'
+//    doLast {
+//        copy {
+//            from '../javadoc-style/'
+//            into "build/docs/javadoc/"
+//        }
+//    }
+//}
+
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from 'build/docs/javadoc'
+//}
+
+//task sourcesJar(type: Jar) {
+//    from sourceSets.main.allSource
+//    classifier = 'sources'
+//}
+
+//artifacts {
+//    archives jar
+//    archives javadocJar
+//    archives sourcesJar
+//}
+
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            // Basic definitions are defined in root project
+//            pom.project {
+//                name 'ObjectBox RxJava API'
+//                description 'RxJava extension for ObjectBox'
+//
+//                licenses {
+//                    license {
+//                        name 'The Apache Software License, Version 2.0'
+//                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                        distribution 'repo'
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

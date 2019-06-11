@@ -19,7 +19,7 @@ project.ext {
     google = "12.0.1"
     oneSignal = "3.9.1"
     retrofit = "2.3.0"
-    moshi = "1.5.0"
+    moshi = "1.8.0"
     okHttp = "3.9.1"
     autoValue = "1.5"
     autoMoshi = "0.4.5"
@@ -75,35 +75,38 @@ def archComponent = dependencyGroup {
 }
 
 def analytics = dependencyGroup {
-    implementation "com.google.firebase:firebase-core:16.0.0"
-    implementation "com.google.firebase:firebase-crash:16.0.0"
-    implementation 'com.google.firebase:firebase-auth:16.0.2'
-    implementation 'com.google.firebase:firebase-messaging:17.1.0'
+    implementation "com.google.firebase:firebase-core:16.0.6"
+    implementation "com.google.firebase:firebase-crash:16.2.1"
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 
 //    implementation "com.onesignal:OneSignal:$project.oneSignal"
 }
 
 def google = dependencyGroup {
-    implementation 'com.google.android.gms:play-services-ads:15.0.1'
-    implementation "com.google.android.gms:play-services-base:15.0.1"
-    implementation "com.google.android.gms:play-services-identity:15.0.1"
-    implementation "com.google.android.gms:play-services-auth:15.0.1"
-    implementation "com.google.android.gms:play-services-gcm:15.0.1"
+//    implementation 'com.google.android.gms:play-services-ads:17.1.2'
+    implementation "com.google.android.gms:play-services-base:16.0.0"
+    implementation "com.google.android.gms:play-services-identity:16.0.0"
+    implementation "com.google.android.gms:play-services-auth:16.0.0"
+    implementation "com.google.android.gms:play-services-gcm:16.0.0"
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.android:flexbox:1.0.0'
+
 
 }
 def ads = dependencyGroup {
 
-    implementation 'com.google.android.gms:play-services-location:15.0.1'
+    implementation 'com.google.android.gms:play-services-location:16.0.0'
 
-    implementation 'com.unity3d.ads:unity-ads:2.2.1'
-    implementation 'com.google.ads.mediation:unity:2.2.1.0'
-
-    implementation 'com.adcolony:sdk:3.3.5'
-    implementation 'com.google.ads.mediation:adcolony:3.3.5.0'
-
-    implementation 'com.inmobi.monetization:inmobi-ads:7.1.1'
-    implementation 'com.google.ads.mediation:inmobi:7.1.1.0'
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+//    implementation 'com.unity3d.ads:unity-ads:2.2.1'
+//    implementation 'com.google.ads.mediation:unity:2.2.1.0'
+//
+//    implementation 'com.adcolony:sdk:3.3.5'
+//    implementation 'com.google.ads.mediation:adcolony:3.3.5.0'
+//
+//    implementation 'com.inmobi.monetization:inmobi-ads:7.1.1'
+//    implementation 'com.google.ads.mediation:inmobi:7.1.1.0'
+//    implementation 'com.squareup.picasso:picasso:2.5.2'
 
 
 }
@@ -249,7 +252,7 @@ def nestedScrolView=dependencyGroup {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-//    ads()
+    ads()
 
     testLibs()
 
@@ -291,7 +294,7 @@ dependencies {
     takt()
     blockCanary()
     stetho()
-    facebookLogin()
+//    facebookLogin()
     objectbox()
 //    nestedScrolView()
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="10dp"
+    app:optRoundCardCornerRadius="20dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorAccent">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:background="@drawable/bg_row_home_cover_4">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/drawee_row_home_img1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:roundedCornerRadius="20dp"
+                app:placeholderImageScaleType="fitCenter"
+                app:overlayImage="@drawable/gredient_overlay_4"
+                app:viewAspectRatio="1.7" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:background="@drawable/bg_row_home_cover_4">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/drawee_row_home_img2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                app:roundedCornerRadius="20dp"
+                app:placeholderImageScaleType="fitCenter"
+                app:overlayImage="@drawable/gredient_overlay_4"
+                app:viewAspectRatio="1.7" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!--<RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_row_home_cover_4"
+        android:padding="2dp"
+        tools:layout_marginEnd="@dimen/green_dark">
+
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/drawee_row_home_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:roundedCornerRadius="20dp"
+                app:placeholderImageScaleType="fitCenter"
+                app:overlayImage="@drawable/gredient_overlay_4"
+                app:viewAspectRatio="1.7" />
+
+
+
+
+    </RelativeLayout>-->
+</com.github.captain_miao.optroundcardview.OptRoundCardView>

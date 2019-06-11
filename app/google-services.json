@@ -1,52 +1,82 @@
 {
   "project_info": {
-    "project_number": "566201994149",
-    "firebase_url": "https://objectboxtest.firebaseio.com",
-    "project_id": "objectboxtest",
-    "storage_bucket": "objectboxtest.appspot.com"
+    "project_number": "225196418160",
+    "firebase_url": "https://newamlak-6ae24.firebaseio.com",
+    "project_id": "newamlak-6ae24",
+    "storage_bucket": "newamlak-6ae24.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:566201994149:android:e5818bafd3c7f846",
+        "mobilesdk_app_id": "1:225196418160:android:e98e1d694cbe0e0e",
         "android_client_info": {
-          "package_name": "com.newamlak.intel.objectboxtest"
+          "package_name": "com.hillavas.toolbox"
         }
       },
       "oauth_client": [
         {
-          "client_id": "566201994149-gdjpnfcg7tgc8u6bh4bvk3qre1tnelc5.apps.googleusercontent.com",
+          "client_id": "225196418160-d469e8qojp4mftore418nn6kj30pu1af.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.newamlak.intel.objectboxtest",
-            "certificate_hash": "72e7a27fd8a7ccf0c5bb02b51560094c033cf2d4"
+            "package_name": "com.hillavas.toolbox",
+            "certificate_hash": "69842e4f118266162853ebaf805cf57560b072d0"
           }
         },
         {
-          "client_id": "566201994149-cju93acasohecm30nahf80cag0bpp2ks.apps.googleusercontent.com",
+          "client_id": "225196418160-241m7ctd8nkgtcuuk0p34mm1kmc0nftj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAld_KtckYA40My-Tq_e1apAbKcPPvds5w"
+          "current_key": "AIzaSyD7SDOb6OM0LOcCJeIDrUBw5Cq56Pc_jnY"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "566201994149-cju93acasohecm30nahf80cag0bpp2ks.apps.googleusercontent.com",
+              "client_id": "225196418160-241m7ctd8nkgtcuuk0p34mm1kmc0nftj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225196418160:android:0b9721fb91118b90",
+        "android_client_info": {
+          "package_name": "com.newamlak.shaho.amlaknew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225196418160-e8v474ccajep2ntsittqhtc48mui9ind.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.newamlak.shaho.amlaknew",
+            "certificate_hash": "72e7a27fd8a7ccf0c5bb02b51560094c033cf2d4"
+          }
         },
-        "ads_service": {
-          "status": 2
+        {
+          "client_id": "225196418160-241m7ctd8nkgtcuuk0p34mm1kmc0nftj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7SDOb6OM0LOcCJeIDrUBw5Cq56Pc_jnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "225196418160-241m7ctd8nkgtcuuk0p34mm1kmc0nftj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

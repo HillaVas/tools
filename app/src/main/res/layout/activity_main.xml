@@ -8,7 +8,8 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/browser_actions_bg_grey">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -20,8 +21,32 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp">
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="@android:color/white"
+                    android:gravity="fill_vertical"
+
+                    android:paddingLeft="8dp"
+                    android:text="جعبه ابزار"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/shabnam_fd" />
+
+                <android.support.v7.widget.AppCompatImageButton
+                    android:id="@+id/img_btn_login_main"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:background="?attr/selectableItemBackground"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_verified_user_black_24dp" />
 
                 <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/img_main_logo"
@@ -31,25 +56,16 @@
                     android:layout_centerVertical="true" />
 
 
-
-
-
-
-
-
-
-
-
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/txt_main_title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentStart="true"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginEnd="48dp"
                     android:layout_marginLeft="0dp"
-                    android:layout_marginRight="0dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="48dp"
+                    android:layout_marginRight="0dp"
+                    android:layout_marginBottom="10dp"
                     android:gravity="center"
                     android:text="@string/app_name"
                     android:textColor="@android:color/white"
@@ -74,7 +90,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
+
         app:menu="@menu/activity_main_drawer">
 
 

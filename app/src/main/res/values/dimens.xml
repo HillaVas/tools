@@ -2,9 +2,10 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="orange">3dp</dimen>
-    <dimen name="yellow">6dp</dimen>
+    <dimen name="yellow">1dp</dimen>
     <dimen name="yellow_dark">1dp</dimen>
-    <dimen name="green_dark">10dp</dimen>
+    <dimen name="green_dark">2dp</dimen>
+    <dimen name="items">0dp</dimen>
     <dimen name="grey">12dp</dimen>
     <dimen name="blue_light">16dp</dimen>
     <dimen name="blue_dark">20dp</dimen>

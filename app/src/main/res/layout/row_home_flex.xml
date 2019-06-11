@@ -1,0 +1,24 @@
+<com.google.android.flexbox.FlexboxLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:flexWrap="wrap"
+    app:alignItems="stretch"
+    app:alignContent="stretch"
+    app:layout_flexGrow="1">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/drawee_row_home_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:roundedCornerRadius="20dp"
+        app:placeholderImageScaleType="center"
+        app:overlayImage="@drawable/gredient_overlay"
+        android:scaleType="center"
+        app:optRoundCardCornerRadius="20dp"
+        app:layout_flexGrow="1"/>
+
+</com.google.android.flexbox.FlexboxLayout>
+
+

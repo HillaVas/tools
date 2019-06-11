@@ -1,13 +1,40 @@
 <resources>
-    <string name="app_name">ObjectBoxTest</string>
+    <string name="app_name">جعبه ابزار</string>
 
 
-    <string name="error_wrong_passed_data">passed data is wrong</string>
-    <string name="navigation_drawer_heder1">املاک شایان </string>
+    <string name="navigation_drawer_heder1">جعبه ابزار</string>
     <string name="navigation_drawer_heder1_mail">shayan.amlak@gmail.com </string>
-    <string name="main_icon_name_aparteman_ejare"> اجاره آپارتمان</string>
-    <string name="main_icon_name_aparteman_forush"> فروش آپارتمان</string>
-    <string name="main_icon_name_vila_ejare"> اجاره ویلایی</string>
-    <string name="main_icon_name_vila_forush"> فروش ویلایی</string>
-    <string name="main_icon_name_zamin">زمین</string>
+    <string name="error_internal">An Internal Error occurred. Please try again</string>
+    <string name="error_wrong_input_data">The Input Data Is Wrong</string>
+    <string name="error_wrong_received_params">Error in receiving Parameters</string>
+    <string name="error_time_out">Server Time Out</string>
+    <string name="error_connection_failure">Connection Failed</string>
+    <string name="error_data_receive">Malformed Data received</string>
+    <string name="error_server_failure">Server Failed To Respond</string>
+    <string name="error_no_item_received">No Item Received</string>
+    <string name="error_server">Server Error</string>
+    <string name="error_server_500">Server Error !</string>
+    <string name="error_unAuthorized">UnAuthorized</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="error_wrong_passed_data">passed data is wrong</string>
+    <string name="offline_item_home_list_">offline_item_home_list_</string>
+    <string name="offline_item_home_list_1">بانک</string>
+    <string name="offline_item_home_list_2">موبایل</string>
+    <string name="offline_item_home_list_3">استخاره</string>
+    <string name="offline_item_home_list_4">مدیا</string>
+    <string name="offline_item_home_list_5">املاک</string>
+    <string name="offline_item_home_list_6">خودرو</string>
+    <string name="offline_item_home_list_7">ترافیک</string>
+    <string name="offline_item_home_list_8">فال</string>
+    <string name="offline_item_home_list_9">تعبیر خواب</string>
+    <string name="offline_item_home_list_10">تقویم</string>
+    <string name="offline_item_home_list_11">ریمایندر</string>
+    <string name="offline_item_home_list_12">ابزار</string>
+    <string name="offline_item_home_list_13">دستیار سلامت</string>
+    <string name="offline_item_home_list_14">خبر خوان</string>
+    <string name="offline_item_home_list_15">گردش کار</string>
+    <string name="offline_item_home_list_16">برنامه های کاربردی</string>
+
+
+
 </resources>

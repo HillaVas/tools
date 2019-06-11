@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/flexbox_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:flexDirection="row"
+    app:justifyContent="flex_start"
+    app:layout_flexGrow="1.0"
+    app:flexWrap="wrap">
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/drawee_row_home_img"
+        android:layout_width="match_parent"
+        app:viewAspectRatio="4.32"
+        android:scaleType="centerCrop"
+        android:layout_height="wrap_content" />
+
+    <!--<ImageView
+        android:id="@+id/drawee_row_home_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_flexGrow="1.0"/>-->
+</com.google.android.flexbox.FlexboxLayout>
+

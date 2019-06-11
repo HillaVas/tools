@@ -1,0 +1,55 @@
+package com.hillavas.toolbox.servermodel;
+
+import android.os.Parcelable;
+
+import com.google.auto.value.AutoValue;
+import com.squareup.moshi.Json;
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+
+import java.util.List;
+
+import javax.annotation.Nullable;
+
+@AutoValue
+public abstract class ItemHomeList implements Parcelable {
+
+
+    @Json(name = "CategoryId")
+    public abstract int CategoryId();
+
+    @Nullable
+    @Json(name = "ContentType")
+    public abstract String ContentType();
+
+
+    @Json(name = "ShowName")
+    public abstract boolean ShowName();
+
+
+    @Json(name = "Name")
+    public abstract String Name();
+
+
+    @Json(name = "HasChild")
+    public abstract boolean HasChild();
+
+
+    @Json(name = "Attachments")
+    public abstract List<AttachmentsModel> Attachments();
+
+
+
+    public static AutoValue_ItemHomeList createItemHomeList(int CategoryId, String ContentType ,boolean ShowName,String Name,boolean HasChild, List<AttachmentsModel> Attachments )
+    {
+        return new AutoValue_ItemHomeList(CategoryId,ContentType,ShowName,Name,HasChild,Attachments);
+    }
+
+
+
+    public static JsonAdapter<ItemHomeList> jsonAdapter(Moshi moshi)
+    {
+        return new AutoValue_ItemHomeList.MoshiJsonAdapter(moshi);
+    }
+
+}
