@@ -1,6 +1,8 @@
 package com.hillavas.toolbox.viewholder.commonList;
 
 import android.content.Context;
+import android.net.Uri;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -8,6 +10,7 @@ import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseViewHolder;
 import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
+import com.hillavas.toolbox.utils.IntentUtils;
 
 import javax.inject.Inject;
 
@@ -28,6 +31,11 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
     SimpleDraweeView draweeRowHomeImg;
 
 
+    @BindView(R.id.txt_row_item_name)
+    AppCompatTextView txtRowItemName;
+
+
+
     public ListsVH(View itemView, ListsVM viewModel) {
         super(itemView, viewModel);
         ButterKnife.bind(this,itemView);
@@ -36,6 +44,13 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
 
     @Override
     public void bind() {
+
+        Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage());
+        draweeRowHomeImg.setImageURI(uri);
+
+        if (mVM.getShowName())
+            txtRowItemName.setText(mVM.getName());
+
 //        if (mVM.getImage()!= null)
 //           draweeRowHomeImg.setImageURI(mVM.getImage());
 //        else
@@ -45,23 +60,29 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
     @Override
     public void itemOnClick(PublishSubject<ListsVHAction> actionSubject) {
         itemView.setOnClickListener(v -> {
+            Context context =v.getContext();
+            if (mVM.getHasChild())
+            {
+                switch (mVM.getName()){
+                    case  "اطلاعات و اخبار وام"   :
+                        IntentUtils.openListL2(context,mVM.getName(),1,mVM.getCategoryId(),3);
 
-            Context context = v.getContext();
-
-//            switch (mVM.getName())
-//            {
-//                case "بانک" :
-//                    break;
-//                default:
-//                {
-//
-//                    IntentUtils.openWeb(context,"http://www.google.com");
-//                }
-//            }
+                }
+            }else {
+                switch (mVM.getContentType()){
 
 
-//            intent.putExtra(ListActivity.NUMBER_OF_ROW_LIST, mVM.getObject().id()%3);
+                    case 0 :
+                        IntentUtils.openContentTip(context,mVM.getCategoryId(),mVM.getContentType());
+                        break;
 
+
+                    default:
+                        IntentUtils.openWeb(context,"https://kitset.ir/financial/loan-profits");
+
+
+                }
+            }
         });
 
     }

@@ -1,16 +1,16 @@
 package com.hillavas.toolbox.viewholder.listOneRow;
 
+import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.ViewHolderFactory;
-import com.hillavas.toolbox.viewholder.commonList.ListsVH;
-import com.hillavas.toolbox.viewholder.commonList.ListsVM;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 

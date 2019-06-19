@@ -3,6 +3,7 @@ package com.hillavas.toolbox.viewholder.home;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,8 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
     @Inject
     protected DBManager mDBManager;
 
+
+
 //
 //    @BindView(R.id.drawee_row_home_img)
 //    SimpleDraweeView draweeRowHomeImg;
@@ -35,6 +38,10 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
 
     @BindView(R.id.drawee_row_home_img)
     SimpleDraweeView draweeRowHomeImg;
+
+    @BindView(R.id.txt_row_item_name)
+    AppCompatTextView txtRowItemName;
+
 //    @BindView(R.id.drawee_row_home_img)
 //    ImageView draweeRowHomeImg;
 
@@ -68,10 +75,12 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
 //        }
 
 
-       if (mVM.getImage()!= ""){
+       if (mVM.getImage("l")!= ""){
 
-           Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage());
+           Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("l"));
            draweeRowHomeImg.setImageURI(uri);
+           if (mVM.getShowName())
+             txtRowItemName.setText(mVM.getName());
 //            draweeRowHomeImg.setImageResource(uri);
 
             ViewGroup.LayoutParams lp = draweeRowHomeImg.getLayoutParams();
@@ -82,7 +91,7 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
               }
        }
         else{
-           Uri myUri = Uri.parse(mVM.getImage());
+           Uri myUri = Uri.parse(mVM.getImage("l"));
             draweeRowHomeImg.setImageURI(myUri);
 //            draweeRowHomeImg.setImageURI(mVM.getImage());
            ViewGroup.LayoutParams lp = draweeRowHomeImg.getLayoutParams();
@@ -101,45 +110,74 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
         itemView.setOnClickListener(v -> {
             Context context = v.getContext();
             int row = 1;
-            double ratio = 1;
-            switch (mVM.getName()){
-
-                case  "بانک"   :
-                    row = 1;
-                    ratio = 1.7;
-                case "موبایل" :
-                    row = 1;
-                    ratio = 1;
-                    break;
-                case "مدیا" :
-                    row = 3;
-                    ratio = 1.7;
-                    break;
-                case "املاک" :
-                    row = 1;
-                    ratio = 1.5;
-                    break;
-                case "خودرو" :
-                    row = 2;
-                    ratio = 2;
-                    break;
-                case "ترافیک" :
-                    row = 1;
-                    ratio = 1;
-                    break;
-                case "فال" :
-                    row = 3;
-                    ratio = 1;
-                    break;
-
-                case "تعبیر خواب" :
-
-                    break;
+            double  ratio = 1;
 
 
+
+            if (mVM.getHasChild())
+            {
+
+                switch ((mVM.getName())){
+                    case "املاک" :
+                        row = 1;
+                        ratio = 2;
+                        break;
+                    case "خودرو" :
+                        row = 2;
+                        ratio = 2;
+                        break;
+                    case "ترافیک" :
+                        row = 1;
+                        ratio = 1;
+                        break;
+                    case "بانک" :
+                        row = 1;
+                        ratio = 1;
+                        break;
+                    case "موبایل" :
+                        row = 1;
+                        ratio = 1;
+                        break;
+                    case "مدیا" :
+                        row = 1;
+                        ratio = 1;
+                        break;
+                }
+                IntentUtils.openListL2(context,mVM.getName(),row,mVM.getCategoryId(),ratio);
+            }
+            else
+            {
+                switch (mVM.getName()){
+
+
+
+                    case "املاک" :
+                        row = 1;
+                        ratio = 2;
+                        break;
+                    case "خودرو" :
+                        row = 2;
+                        ratio = 2;
+                        break;
+                    case "ترافیک" :
+                        row = 1;
+                        ratio = 1;
+                        break;
+                    case "فال" :
+                        row = 3;
+                        ratio = 1;
+                        break;
+
+                    case "تعبیر خواب" :
+
+                        break;
+
+
+                }
             }
 
-            IntentUtils.openListL2(context,mVM.getName(),row,mVM.getCategoryId());
+
+//            IntentUtils.openListL2(context,mVM.getName(),row,mVM.getCategoryId(),ratio);
 
 
 

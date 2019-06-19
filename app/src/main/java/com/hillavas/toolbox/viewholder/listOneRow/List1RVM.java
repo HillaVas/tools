@@ -12,6 +12,24 @@ public class List1RVM extends BaseVHViewModel<ItemHomeList> {
         List<AttachmentsModel> atModel =mObject.Attachments();
         return atModel.get(0).RelativeAddress();}
 
+    boolean getHasChild(){
+        return mObject.HasChild();
+    }
+
+    String getName(){return mObject.Name();}
+    int getCategoryId(){
+        return mObject.CategoryId();
+    }
+
+    int getAttachmentType(){
+        List<AttachmentsModel> atModel =mObject.Attachments();
+        return atModel.get(0).AttachmentType();
+    }
+    boolean getShowName(){return mObject.ShowName();}
+
+    Integer getContentType(){
+        return mObject.ContentType();
+    }
 
 //    String getImage(){return mObject.Name();}
 //    String getName(){return mObject.Name();}

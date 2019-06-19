@@ -1,12 +1,13 @@
-package com.hillavas.toolbox.viewholder.home;
+package com.hillavas.toolbox.viewholder.contentList1;
 
 import com.hillavas.toolbox.base.BaseVHViewModel;
 import com.hillavas.toolbox.servermodel.AttachmentsModel;
+import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 
 import java.util.List;
 
-public class HomeVM extends BaseVHViewModel<ItemHomeList> {
+public class ContentVM1 extends BaseVHViewModel<ItemContentList> {
 
     String getImage(String size){
         String size_img ="h/";
@@ -30,16 +31,20 @@ public class HomeVM extends BaseVHViewModel<ItemHomeList> {
 
     }
 
-    boolean getHasChild(){
-        return mObject.HasChild();
+//    boolean getHasChild(){
+//        return mObject.HasChild();
+//    }
+//    int getCategoryId(){
+//        return mObject.CategoryId();
+//    }
+
+    String getTitle(){
+        return mObject.Title();
     }
-    int getCategoryId(){
-        return mObject.CategoryId();
+    String getTxt(){
+        return mObject.Desc();
     }
-    String getName(){
-        return mObject.Name();
-    }
-    boolean getShowName(){return mObject.ShowName();}
+//    boolean getShowName(){return mObject.ShowName();}
 
 
 }

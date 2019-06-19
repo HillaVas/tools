@@ -1,5 +1,6 @@
 package com.hillavas.toolbox.viewholder.commonList;
 
+import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +10,10 @@ import com.hillavas.toolbox.base.ViewHolderFactory;
 
 import javax.inject.Inject;
 
+import butterknife.BindView;
+
 
 public class ListsVHFactory implements ViewHolderFactory<ListsVH> {
-
-
 
 
     @Inject
