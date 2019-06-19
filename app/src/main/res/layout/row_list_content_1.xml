@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="600dp"
+    android:padding="2dp"
+    app:cardElevation="10dp"
+    app:optRoundCardCornerRadius="20dp"
+
+    app:optRoundCardLeftBottomCorner="false"
+    app:optRoundCardRightTopCorner="false"
+    tools:background="@color/colorBlack">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_row_home_cover_4"
+        tools:layout_marginEnd="@dimen/green_dark">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/drawee_row_item_ontent_img_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            app:roundBottomLeft="false"
+            app:roundBottomRight="false"
+
+            app:roundedCornerRadius="20dp"
+            app:viewAspectRatio="1.7"
+            tools:background="@android:color/black" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txtItemContentName_list_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/drawee_row_item_ontent_img_1"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="-31dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:maxLines="2"
+            android:textColor="@android:color/black"
+            tools:text="Rap Caviar" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_row_item_ontent_1"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_below="@+id/drawee_row_item_ontent_img_1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="29dp"
+            android:layout_marginRight="@dimen/grey"
+            android:gravity="right"
+            android:paddingBottom="@dimen/yellow"
+            android:scrollbars="vertical"
+            android:textSize="22sp"
+            tools:text="23 tracks" />
+
+    </RelativeLayout>
+</com.github.captain_miao.optroundcardview.OptRoundCardView>

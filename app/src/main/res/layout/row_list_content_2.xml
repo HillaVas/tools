@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:padding="2dp"
+    app:cardElevation="10dp"
+    app:optRoundCardCornerRadius="20dp"
+
+    app:optRoundCardLeftBottomCorner="false"
+    app:optRoundCardRightTopCorner="false"
+    tools:background="@color/colorBlack">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.7"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/txtItemContentName_list_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/yellow"
+                android:gravity="right"
+                android:maxLines="2"
+                android:textColor="@android:color/black"
+                tools:text="Rap Caviar"
+                android:paddingBottom="8dp"/>
+            <TextView
+                android:id="@+id/txt_row_item_ontent_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="8dp"
+                android:gravity="right"
+                android:paddingBottom="@dimen/yellow"
+                android:textSize="16sp"
+                tools:text="23 tracks"
+                app:autoSizeTextType="uniform"
+                />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp">
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/drawee_row_item_ontent_img_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+
+                app:roundBottomLeft="false"
+                app:roundBottomRight="false"
+                app:roundTopRight="false"
+                app:roundedCornerRadius="20dp"
+                app:viewAspectRatio="1"
+                tools:background="@android:color/black" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</com.github.captain_miao.optroundcardview.OptRoundCardView>

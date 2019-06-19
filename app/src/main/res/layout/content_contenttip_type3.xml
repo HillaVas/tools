@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingBottom="20dp"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.content.ContentTipActivity"
+    tools:showIn="@layout/activity_content_tip">
+
+    <com.github.captain_miao.optroundcardview.OptRoundCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/green_dark"
+        android:layout_marginStart="@dimen/green_dark"
+        app:optRoundCardCornerRadius="15dp"
+        app:optRoundCardLeftBottomCorner="false"
+        app:optRoundCardRightBottomCorner="false">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="10dp"
+                    android:background="@drawable/bg_row_home_cover_4">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/content_image_big"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:roundedCornerRadius="20dp"
+                        app:placeholderImageScaleType="fitCenter"
+                        app:overlayImage="@drawable/gredient_overlay_4"
+                         />
+
+                    <ImageView
+                        android:id="@+id/img_content_image_big"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtContentTipName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/bottom_navigation_elevation"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp"
+                        android:gravity="bottom|right"/>
+
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.05"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.001"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <!--<android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/txtContentTipName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/bottom_navigation_elevation"
+                            android:layout_marginRight="@dimen/bottom_navigation_elevation"
+                            android:layout_weight="1"
+                            android:gravity="left|center_horizontal"
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="18sp" />-->
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.001"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtContentTipDetail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/bottom_navigation_elevation"
+                        android:layout_marginRight="@dimen/bottom_navigation_elevation"
+                        android:layout_weight="1"
+                        android:gravity="right|center_horizontal"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="18sp"
+                        android:justificationMode="inter_word"
+                        />
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+    </com.github.captain_miao.optroundcardview.OptRoundCardView>
+
+</android.support.constraint.ConstraintLayout>
