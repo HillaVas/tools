@@ -35,7 +35,7 @@ public class ListRVAdapter extends ListAdapter<ItemHomeList, ListsVH> {
 
     @Override
     public void onBindViewHolder(@NonNull ListsVH holder, int position) {
-//        holder.getVM().setObject(getItem(position));
+        holder.getVM().setObject(getItem(position));
         holder.bind();
         holder.itemOnClick(mClickPS);
     }

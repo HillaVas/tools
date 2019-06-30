@@ -29,7 +29,7 @@ public class MainActivityInteractor extends BaseInteractor {
 
 
     public Single<MainActivityState> getHomeList() {
-        return mRestManager.getHomeList()
+        return mRestManager.getHomeList("2e8dfb86-92b2-4e43-9209-6f299cc4ef2f")
                 .map(baseModelResponse -> {
                     if (baseModelResponse.code() == 200 && baseModelResponse.body().IsSuccessful() ) {
                         return MainActivityState.createSuccessState(baseModelResponse.body().Result());

@@ -2,6 +2,7 @@ package com.hillavas.toolbox.manager.rest;
 
 import com.hillavas.toolbox.app.network.ToolBoxApi;
 import com.hillavas.toolbox.servermodel.BaseModel;
+import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 
 import java.util.List;
@@ -23,13 +24,19 @@ public final class AppRestManager implements RestManager{
     public AppRestManager(){}
 
     @Override
-    public Single<Response<BaseModel<List<ItemHomeList>>>> getHomeList() {
-        return mApi.getHomeList(1);
+    public Single<Response<BaseModel<List<ItemHomeList>>>> getHomeList(String token) {
+        return mApi.getHomeList(token,1);
     }
 
     @Override
-    public Single<Response<BaseModel<List<ItemHomeList>>>> getChildList(int catId) {
-        return mApi.getChildList(1,catId);
+    public Single<Response<BaseModel<List<ItemHomeList>>>> getChildList(int catId,String token) {
+        return mApi.getChildList(token,1,catId);
+//        return mApi.getHomeList("2e8dfb86-92b2-4e43-9209-6f299cc4ef2f",1);
+    }
+
+    @Override
+    public Single<Response<BaseModel<List<ItemContentList>>>> getContentTip(int catId,String token) {
+        return mApi.getContentTip(token,1,catId);
 //        return mApi.getHomeList("2e8dfb86-92b2-4e43-9209-6f299cc4ef2f",1);
     }
 

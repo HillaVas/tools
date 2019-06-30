@@ -4,6 +4,7 @@ package com.hillavas.toolbox.app.viewmodel;
 import android.arch.lifecycle.ViewModel;
 
 
+import com.hillavas.toolbox.activity.content.ContentTipActivityViewModel;
 import com.hillavas.toolbox.activity.listActivity.ListActivityViewModel;
 import com.hillavas.toolbox.activity.mainActivity.MainActivityViewModel;
 import com.hillavas.toolbox.activity.mainActivity.MainViewModelModule;
@@ -27,6 +28,12 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(clazz = ListActivityViewModel.class)
     abstract ViewModel bindListViewModel(ListActivityViewModel viewModel);
+
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(clazz = ContentTipActivityViewModel.class)
+    abstract ViewModel bindContentTipViewModel(ContentTipActivityViewModel viewModel);
 
 
 

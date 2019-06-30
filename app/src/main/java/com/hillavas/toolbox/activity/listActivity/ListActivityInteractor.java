@@ -26,7 +26,7 @@ public class ListActivityInteractor extends BaseInteractor {
     }
 
     public Single<ListActivityState> getChildList(int catId) {
-        return mRestManager.getChildList(catId)
+        return mRestManager.getChildList(catId,"2e8dfb86-92b2-4e43-9209-6f299cc4ef2f")
                 .map(baseModelResponse -> {
                     if (baseModelResponse.code() == 200 && baseModelResponse.body().IsSuccessful() ) {
                         return ListActivityState.createSuccessState(baseModelResponse.body().Result());

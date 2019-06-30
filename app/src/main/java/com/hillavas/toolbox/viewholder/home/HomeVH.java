@@ -2,6 +2,7 @@ package com.hillavas.toolbox.viewholder.home;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.DisplayMetrics;
@@ -152,8 +153,7 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
 
 
                     case "املاک" :
-                        row = 1;
-                        ratio = 2;
+                        IntentUtils.openAmlakRahnForush(context);
                         break;
                     case "خودرو" :
                         row = 2;
@@ -166,6 +166,9 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
                     case "فال" :
                         row = 3;
                         ratio = 1;
+                        break;
+                    case "ابزار" :
+                        IntentUtils.openQebleNAma(context);
                         break;
 
                     case "تعبیر خواب" :

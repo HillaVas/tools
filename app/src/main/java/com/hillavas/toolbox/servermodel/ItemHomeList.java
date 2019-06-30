@@ -1,6 +1,7 @@
 package com.hillavas.toolbox.servermodel;
 
 import android.os.Parcelable;
+import android.support.annotation.IntDef;
 
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
@@ -20,7 +21,7 @@ public abstract class ItemHomeList implements Parcelable {
 
     @Nullable
     @Json(name = "ContentType")
-    public abstract String ContentType();
+    public abstract Integer ContentType();
 
 
     @Json(name = "ShowName")
@@ -40,7 +41,7 @@ public abstract class ItemHomeList implements Parcelable {
 
 
 
-    public static AutoValue_ItemHomeList createItemHomeList(int CategoryId, String ContentType ,boolean ShowName,String Name,boolean HasChild, List<AttachmentsModel> Attachments )
+    public static AutoValue_ItemHomeList createItemHomeList(int CategoryId, Integer ContentType ,boolean ShowName,String Name,boolean HasChild, List<AttachmentsModel> Attachments )
     {
         return new AutoValue_ItemHomeList(CategoryId,ContentType,ShowName,Name,HasChild,Attachments);
     }

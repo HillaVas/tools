@@ -17,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".activity.mainActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -37,6 +38,17 @@
 
         <activity android:name=".activity.webView.WebViewActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".activity.content.ContentTipActivity"
+            android:theme = "@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".activity.tools.QebleNamaActivity"
+            android:theme = "@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".activity.tools.AmlakRahnEjareforushActivity"
+            android:theme = "@style/AppTheme.NoActionBar"/>
+
+
 
         <meta-data
             android:name="AdadToken"

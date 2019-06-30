@@ -3,7 +3,7 @@
 
     <dimen name="orange">3dp</dimen>
     <dimen name="yellow">1dp</dimen>
-    <dimen name="yellow_dark">1dp</dimen>
+    <dimen name="yellow_dark">2dp</dimen>
     <dimen name="green_dark">2dp</dimen>
     <dimen name="items">0dp</dimen>
     <dimen name="grey">12dp</dimen>

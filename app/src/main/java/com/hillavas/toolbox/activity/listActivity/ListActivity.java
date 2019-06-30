@@ -41,6 +41,7 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
     public static final String ROW_LEVEL_ONE = "row_level_one";
     public static final String ASPECT_LEVEL_ONE = "aspect_level_one";
     public static final String CATEGGORY_ID = "category_id";
+    public static final String ATTACHMENT_TYPE = "AttachmentType";
 
 
     List<ItemHomeList> homeList = new ArrayList<>();
@@ -82,6 +83,7 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
 
     private int numberRow = 0;
     private int categoryId = 0;
+    private double attachmentType = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +97,7 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
         Intent mIntent = getIntent();
         numberRow = mIntent.getIntExtra(NUMBER_OF_ROW_LIST,0);
         categoryId = mIntent.getIntExtra(CATEGGORY_ID ,0);
+        attachmentType = mIntent.getDoubleExtra(ATTACHMENT_TYPE ,0);
 
 
         mViewModel.getChildList(categoryId);
@@ -136,6 +139,8 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
 
     public void initRV() {
 
+        if (homeList.get(0).Attachments().get(0).AttachmentType()!= 0)
+          attachmentType = homeList.get(0).Attachments().get(0).AttachmentType();
         int divider = 0;
         mMainRVAdapter = mMainRVAdapterProvider.get();
         mMainRVAdapter.submitList(homeList);
@@ -144,10 +149,16 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
         mGridLayoutManager = new GridLayoutManager(this,numberRow);
 //        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(numberRow,StaggeredGridLayoutManager.VERTICAL);
 //        mLinearLayoutManager = new LinearLayoutManager(this);
-        if (numberRow!=0)
+        if (attachmentType==1)
             rListHome.setAdapter(mMain1RRVAdapter);
-        else
-        rListHome.setAdapter(mMainRVAdapter);
+//        else if(attachmentType==3)
+//            rListHome.setAdapter(mMainRVAdapter);
+        else{
+            mMainRVAdapter.submitList(homeList);
+            rListHome.setAdapter(mMainRVAdapter);
+
+        }
+
         rListHome.setLayoutManager(mGridLayoutManager);
 //        rListHome.setLayoutManager(mGridLayoutManager);
 //        rListHome.setLayoutManager(mLinearLayoutManager);
