@@ -88,7 +88,7 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Adad.prepareInterstitialAd();
+
 
         Fresco.initialize(this);
         setContentView(R.layout.activity_main);
@@ -118,7 +118,7 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
 
         ButterKnife.bind(this);
 
-        Adad.enableBannerAds();
+
     }
 
 

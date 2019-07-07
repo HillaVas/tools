@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.hillavas.toolbox"
-    >
+    package="com.hillavas.toolbox">
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
@@ -17,7 +19,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".activity.tools.ScanActivity"></activity>
         <activity android:name=".activity.mainActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,41 +27,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="ir.adad.client.AdadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
-
         <activity android:name=".activity.listActivity.ListActivity" />
-
-        <activity android:name=".activity.computationalServices.installment_and_interest.InterestActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".activity.webView.WebViewActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".activity.content.ContentTipActivity"
-            android:theme = "@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".activity.tools.QebleNamaActivity"
-            android:theme = "@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".activity.tools.AmlakRahnEjareforushActivity"
-            android:theme = "@style/AppTheme.NoActionBar"/>
-
-
-
-        <meta-data
-            android:name="AdadToken"
-            android:value="6f28bc20-3f13-4579-9733-4a7343ff59fd" />
-
-        <meta-data
-            android:name="AdadTestMode"
-            android:value="true"
-            />
-
-
+        <activity
+            android:name=".activity.computationalServices.installment_and_interest.InterestActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.webView.WebViewActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.content.ContentTipActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.tools.QebleNamaActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.tools.AmlakRahnEjareforushActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.earthquake.EarthquakeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.tools.BarCrcodeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.tools.SalavatShomarActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

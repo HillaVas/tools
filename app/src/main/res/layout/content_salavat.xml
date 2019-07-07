@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:paddingBottom="20dp"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.content.ContentTipActivity"
+    tools:showIn="@layout/activity_content_tip">
+
+    <com.github.captain_miao.optroundcardview.OptRoundCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/green_dark"
+        android:layout_marginStart="@dimen/green_dark"
+        app:optRoundCardCornerRadius="15dp"
+        app:optRoundCardLeftBottomCorner="false"
+        app:optRoundCardRightBottomCorner="false">
+
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.35"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingRight="2dp"
+                android:paddingLeft="2dp"
+                android:paddingTop="2dp"
+                android:layout_marginTop="2dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:background="@drawable/bg_edittext_grey"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/txt_salavat_tedadshomaresh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="16dp"
+                        android:text="رهن و اجاره"
+                        android:textSize="22sp"
+                        android:textColor="@color/colorBlack"/>
+
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.65"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layout_amlak_row2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingRight="40dp"
+                    android:paddingLeft="40dp"
+                    android:paddingTop="8dp">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:gravity="right"
+                        android:background="@drawable/bg_edittext_grey_r5">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5">
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/edt_salavat_tedadekol"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:hint="....................................."
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:textColor="@color/colorBlack"
+                                android:textColorHint="@color/browser_actions_title_color"
+                                android:textSize="14sp"
+                                android:paddingRight="4dp"
+                                android:background="@null"
+                                android:layout_gravity="left"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="4dp"
+                                android:paddingRight="5dp"
+                                android:text="صلوات های شمارش شده"
+                                android:textSize="16sp"
+                                android:textColor="@color/browser_actions_title_color"/>
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.2"
+                    android:gravity="center|top"
+                    android:orientation="vertical"
+                    android:paddingRight="40dp"
+                    android:paddingLeft="40dp"
+                    android:paddingTop="8dp"
+                    >
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="12dp"
+                        android:gravity="right"
+                        android:background="@drawable/bg_edittext_grey_r5">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5">
+                            <android.support.v7.widget.AppCompatEditText
+                                android:id="@+id/edt_salavat_tedad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="right"
+                                android:hint="....................................."
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:textColor="@color/colorBlack"
+                                android:textColorHint="@color/browser_actions_title_color"
+                                android:textSize="14sp"
+                                android:paddingRight="4dp"
+                                android:background="@null"
+                                android:layout_gravity="right"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:gravity="center">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="4dp"
+                                android:paddingRight="5dp"
+                                android:text="تعداد صلوات"
+                                android:textSize="16sp"
+                                android:textColor="@color/browser_actions_title_color"/>
+                        </LinearLayout>
+
+
+
+
+
+
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.60"
+                    android:paddingRight="40dp"
+                    android:paddingLeft="40dp"
+                    android:paddingTop="24dp"
+                    android:paddingBottom="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5"
+                        android:gravity="top"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/bg_layout_border_gray"
+                                >
+                                <LinearLayout
+
+                                    android:id="@+id/layout_salavat_clear"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_edittext_yelow"
+                                    android:gravity="center">
+
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingBottom="8dp"
+                                        android:paddingTop="8dp"
+                                        android:text="پاک کردن"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/browser_actions_bg_grey"
+                                        android:gravity="center"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/bg_layout_border_gray"
+                                >
+                                <LinearLayout
+
+                                    android:id="@+id/layout_salavat_resetall"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_edittext_yelow"
+                                    android:gravity="center">
+
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingBottom="8dp"
+                                        android:paddingTop="8dp"
+                                        android:text="صفر کردن کلی"
+                                        android:textSize="20sp"
+                                        android:textColor="@color/browser_actions_bg_grey"
+                                        android:gravity="center"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5"
+                        android:paddingLeft="40dp"
+                        android:paddingRight="40dp"
+                        android:paddingBottom="8dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="bottom">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="3dp"
+                                android:background="@drawable/bg_layout_border_gray"
+                                >
+                                <LinearLayout
+
+                                    android:id="@+id/layout_salvat_shomaresh"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_edittext_yelow"
+                                    android:gravity="center">
+
+                                    <TextView
+
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingBottom="24dp"
+                                        android:paddingTop="24dp"
+                                        android:paddingRight="20dp"
+                                        android:paddingLeft="20dp"
+                                        android:text="شمارش"
+                                        android:textSize="25sp"
+                                        android:textColor="@color/browser_actions_bg_grey"
+                                        android:gravity="center"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </com.github.captain_miao.optroundcardview.OptRoundCardView>
+
+</android.support.constraint.ConstraintLayout>

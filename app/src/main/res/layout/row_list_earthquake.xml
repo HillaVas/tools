@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.captain_miao.optroundcardview.OptRoundCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="10dp"
+    app:optRoundCardCornerRadius="20dp">
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/bg_row_home_cover_4"
+        android:padding="2dp"
+        tools:layout_marginEnd="@dimen/green_dark"
+        android:gravity="center"
+         >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/drawee_row_item_earth_img"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            app:overlayImage="@drawable/gredient_overlay_4"
+            app:placeholderImageScaleType="fitCenter"
+            app:roundedCornerRadius="20dp"
+            android:scaleType="fitXY"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_row_earth_Region"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|right"
+                    android:paddingBottom="@dimen/yellow"
+                    android:textSize="16sp"
+                    tools:text="test"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="5dp"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_row_earth_Depth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|right"
+                    android:paddingBottom="@dimen/yellow"
+                    android:textSize="16sp"
+                    tools:text="test"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="5dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txt_row_earth_DateTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center|right"
+                    android:paddingBottom="@dimen/yellow"
+                    android:textSize="16sp"
+                    tools:text="test"
+
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.35">
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</com.github.captain_miao.optroundcardview.OptRoundCardView>

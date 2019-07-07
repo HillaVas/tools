@@ -2,6 +2,7 @@ package com.hillavas.toolbox.manager.rest;
 
 
 import com.hillavas.toolbox.servermodel.BaseModel;
+import com.hillavas.toolbox.servermodel.EarthquakeItem;
 import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 
@@ -17,6 +18,8 @@ public interface RestManager {
     Single<Response<BaseModel<List<ItemHomeList>>>> getChildList(int catId,String token);
 
     Single<Response<BaseModel<List<ItemContentList>>>> getContentTip(int catId,String token);
+
+    Single<Response<BaseModel<List<EarthquakeItem>>>> getEarthquakeList(int catId, String token);
 
     Single<Response<BaseModel>> getBase();
 

@@ -2,6 +2,7 @@ package com.hillavas.toolbox.manager.rest;
 
 import com.hillavas.toolbox.app.network.ToolBoxApi;
 import com.hillavas.toolbox.servermodel.BaseModel;
+import com.hillavas.toolbox.servermodel.EarthquakeItem;
 import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 
@@ -38,6 +39,11 @@ public final class AppRestManager implements RestManager{
     public Single<Response<BaseModel<List<ItemContentList>>>> getContentTip(int catId,String token) {
         return mApi.getContentTip(token,1,catId);
 //        return mApi.getHomeList("2e8dfb86-92b2-4e43-9209-6f299cc4ef2f",1);
+    }
+
+    @Override
+    public Single<Response<BaseModel<List<EarthquakeItem>>>> getEarthquakeList(int catId, String token) {
+        return mApi.getEarthquakeList(token,1);
     }
 
     @Override

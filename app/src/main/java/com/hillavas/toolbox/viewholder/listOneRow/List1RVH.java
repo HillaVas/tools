@@ -1,13 +1,17 @@
 package com.hillavas.toolbox.viewholder.listOneRow;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.DisplayMetrics;
 import android.view.View;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hillavas.toolbox.R;
+import com.hillavas.toolbox.activity.mainActivity.MainActivity;
 import com.hillavas.toolbox.base.BaseViewHolder;
 import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
@@ -18,6 +22,9 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.subjects.PublishSubject;
+
+import static android.support.v4.app.ActivityCompat.startActivityForResult;
+import static android.support.v4.content.ContextCompat.startActivity;
 
 public class List1RVH extends BaseViewHolder<List1RVHAction, ItemHomeList,List1RVM> {
 
@@ -92,9 +99,33 @@ public class List1RVH extends BaseViewHolder<List1RVHAction, ItemHomeList,List1R
                             IntentUtils.openContentTip(context,mVM.getCategoryId(),mVM.getContentType());
                             break;
 
+                        case 12 :
+                            IntentUtils.openEarthquakeActivity(context,mVM.getCategoryId(),mVM.getContentType());
+                            break;
 
-                        default:
-                            IntentUtils.openWeb(context,"https://kitset.ir/financial/loan-profits");
+                        case 10 :
+                            IntentUtils.openQebleNAma(context);
+                            break;
+
+                        case 26 :
+                            IntentUtils.openContentTip(context,mVM.getCategoryId(),mVM.getContentType());
+                            break;
+
+                        case  15   :
+                            IntentUtils.openBarCodeActivity(context,mVM.getCategoryId(),mVM.getContentType());
+                            break;
+
+                        case  21   :
+                            IntentUtils.openMirror(context);
+
+
+                        case  13   :
+                            context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+
+                            break;
+
+//                        default:
+//                            IntentUtils.openWeb(context,"https://kitset.ir/financial/loan-profits");
 
 
                     }

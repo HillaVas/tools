@@ -1,6 +1,7 @@
 package com.hillavas.toolbox.app.network;
 
 import com.hillavas.toolbox.servermodel.BaseModel;
+import com.hillavas.toolbox.servermodel.EarthquakeItem;
 import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 
@@ -32,6 +33,9 @@ public interface ToolBoxApi {
 
     @GET("toolbox/api/content/get")
     Single<Response<BaseModel<List<ItemContentList>>>> getContentTip(@Header("Token") String token, @Query("pageNumber") int page, @Query("categoryId") int CategoryId );
+
+    @GET("toolbox/api/content/GetEarthquakeInfo")
+    Single<Response<BaseModel<List<EarthquakeItem>>>> getEarthquakeList(@Header("Token") String token, @Query("pageNumber") int page);
 
 //    @GET("toolbox/api/content/get?page={pageNumber}&id={id}")
 //    Single<Response<BaseModel<List<ItemContentList>>>> getContentTip(@Header("Token") String token, @Path("pageNumber") int page, @Path("id") int CategoryId );

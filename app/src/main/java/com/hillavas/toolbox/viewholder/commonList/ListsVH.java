@@ -77,8 +77,28 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
                         break;
 
 
-                    default:
-                        IntentUtils.openWeb(context,"https://kitset.ir/financial/loan-profits");
+                    case  20   :
+                        IntentUtils.openWeb(context,"https://epostcode.post.ir/");
+                        break;
+
+                    case  4   :
+                        IntentUtils.openAmlakRahnForush(context,mVM.getContentType());
+                        break;
+
+                    case  5   :
+                        IntentUtils.openAmlakRahnForush(context,mVM.getContentType());
+                        break;
+
+                    case  12   :
+                        IntentUtils.openEarthquakeActivity(context,mVM.getCategoryId(),mVM.getContentType());
+                        break;
+
+                    case  15   :
+                        IntentUtils.openBarCodeActivity(context,mVM.getCategoryId(),mVM.getContentType());
+                        break;
+
+//                    default:
+//                        IntentUtils.openWeb(context,"https://kitset.ir/financial/loan-profits");
 
 
                 }

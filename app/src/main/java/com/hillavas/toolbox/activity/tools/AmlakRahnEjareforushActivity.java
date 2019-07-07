@@ -1,5 +1,7 @@
 package com.hillavas.toolbox.activity.tools;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
@@ -18,13 +20,17 @@ import butterknife.OnClick;
 
 public class AmlakRahnEjareforushActivity extends AppCompatActivity {
 
-    public static String rahn = "RAHN_VA_EJARE";
-    public static String kharid = "KHARID_VA_FOLUSH";
-    @BindView(R.id.layout_row2)
-    LinearLayout layoutRow2;
-
-    private String selectService = rahn;
-
+    public static final String rahn = "RAHN_VA_EJARE";
+    public static final String kharid = "KHARID_VA_FOLUSH";
+    public static final String tabdil = "TABDIL_RAHN_VA_EJARE";
+    public static final String CONTENT_TYPE = "Content_Type";
+    @BindView(R.id.layout_amlak_row4)
+    LinearLayout layoutAmlakRow4;
+    @BindView(R.id.txt_amlak_lbl4)
+    TextView txtAmlakLbl4;
+    private int contentType = 0;
+    @BindView(R.id.layout_amlak_row1)
+    LinearLayout layoutAmlakRow1;
     @BindView(R.id.img_btn_back)
     AppCompatImageButton imgBtnBack;
     @BindView(R.id.linier_amlak_rahn)
@@ -56,6 +62,15 @@ public class AmlakRahnEjareforushActivity extends AppCompatActivity {
         setContentView(R.layout.activity_amlak);
         ButterKnife.bind(this);
 
+        Intent mIntent = getIntent();
+        contentType = mIntent.getIntExtra(CONTENT_TYPE, 0);
+
+        if (contentType == 5) {
+            initUI(tabdil);
+        }else {
+            initUI(kharid);
+        }
+
     }
 
     public void initUI(String serviceName) {
@@ -65,21 +80,21 @@ public class AmlakRahnEjareforushActivity extends AppCompatActivity {
             layoutAmlakRow2.setVisibility(View.GONE);
             txtAmlakLbl2.setText("مبلغ");
 
-            final int sdk = android.os.Build.VERSION.SDK_INT;
-            if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                linierAmlakRahn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey) );
-                linierAmlakKharid.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark) );
+            final int sdk = Build.VERSION.SDK_INT;
+            if (sdk < Build.VERSION_CODES.JELLY_BEAN) {
+                linierAmlakRahn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey));
+                linierAmlakKharid.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark));
             } else {
                 linierAmlakRahn.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey));
                 linierAmlakKharid.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark));
             }
 
-        } else {
+        } else if (serviceName.equals(rahn)) {
 
-            final int sdk = android.os.Build.VERSION.SDK_INT;
-            if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-                linierAmlakRahn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark) );
-                linierAmlakKharid.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey) );
+            final int sdk = Build.VERSION.SDK_INT;
+            if (sdk < Build.VERSION_CODES.JELLY_BEAN) {
+                linierAmlakRahn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark));
+                linierAmlakKharid.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey));
             } else {
                 linierAmlakRahn.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark));
                 linierAmlakKharid.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey));
@@ -88,6 +103,13 @@ public class AmlakRahnEjareforushActivity extends AppCompatActivity {
 
             layoutAmlakRow2.setVisibility(View.VISIBLE);
             txtAmlakLbl2.setText("اجاره");
+        } else if (serviceName.equals(tabdil)) {
+            layoutAmlakRow2.setVisibility(View.VISIBLE);
+            txtAmlakLbl2.setText("اجاره");
+            layoutAmlakRow1.setVisibility(View.GONE);
+            layoutAmlakRow4.setVisibility(View.GONE);
+            txtAmlakLbl4.setText("تبدیل");
+
         }
 
     }
@@ -99,15 +121,14 @@ public class AmlakRahnEjareforushActivity extends AppCompatActivity {
     @OnClick(R.id.linier_amlak_rahn)
     public void onLinierAmlakRahnClicked() {
 
-        final int sdk = android.os.Build.VERSION.SDK_INT;
-        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            linierAmlakRahn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey) );
-            linierAmlakKharid.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark) );
+        final int sdk = Build.VERSION.SDK_INT;
+        if (sdk < Build.VERSION_CODES.JELLY_BEAN) {
+            linierAmlakRahn.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey));
+            linierAmlakKharid.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark));
         } else {
             linierAmlakRahn.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_edittext_grey));
             linierAmlakKharid.setBackground(ContextCompat.getDrawable(this, R.drawable.bg_edittext_dark));
         }
-
 
 
         initUI(rahn);

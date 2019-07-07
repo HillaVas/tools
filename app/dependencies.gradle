@@ -250,6 +250,11 @@ def nestedScrolView=dependencyGroup {
     implementation 'com.github.didikk:sticky-nestedscrollview:1.0.1'
 }
 
+def barcode=dependencyGroup{
+    implementation 'com.edwardvanraak:MaterialBarcodeScanner:0.0.6-ALPHA'
+    implementation 'me.dm7.barcodescanner:zxing:1.9'
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -301,6 +306,7 @@ dependencies {
 
     //job()
 //    jwPlayer()
+    barcode()
 }
 
 

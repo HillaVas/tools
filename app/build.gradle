@@ -23,6 +23,9 @@ android {
         sourceCompatibility 1.8
     }
 }
+repositories {
+    maven { url "https://jitpack.io" }
+}
 dependencies {
     implementation 'ir.adad.androidsdkv3:AdadSDKv3:3.3'
     //    implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -38,3 +41,7 @@ dependencies {
     implementation project(':objectbox-rxjava')
 }
 apply plugin: 'com.google.gms.google-services'
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:+'
+}

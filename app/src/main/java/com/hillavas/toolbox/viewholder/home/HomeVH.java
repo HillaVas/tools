@@ -143,6 +143,10 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
                         row = 1;
                         ratio = 1;
                         break;
+                    case "ابزار" :
+                        row = 2;
+                        ratio = 1;
+                        break;
                 }
                 IntentUtils.openListL2(context,mVM.getName(),row,mVM.getCategoryId(),ratio);
             }
@@ -153,7 +157,7 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
 
 
                     case "املاک" :
-                        IntentUtils.openAmlakRahnForush(context);
+                        IntentUtils.openAmlakRahnForush(context,39);
                         break;
                     case "خودرو" :
                         row = 2;
@@ -168,7 +172,7 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
                         ratio = 1;
                         break;
                     case "ابزار" :
-                        IntentUtils.openQebleNAma(context);
+
                         break;
 
                     case "تعبیر خواب" :
