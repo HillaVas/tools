@@ -66,8 +66,6 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
 
     ListRVAdapter mMainRVAdapter;
     List1RRVAdapter mMain1RRVAdapter;
-    @BindView(R.id.img_btn_login_main)
-    AppCompatImageButton imgBtnLoginMain;
     @BindView(R.id.img_main_logo)
     AppCompatImageView imgMainLogo;
     @BindView(R.id.txt_main_title)

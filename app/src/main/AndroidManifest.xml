@@ -6,6 +6,7 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -54,7 +55,7 @@
             android:name=".activity.tools.BarCrcodeActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.tools.SalavatShomarActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"  />
     </application>
 
 </manifest>

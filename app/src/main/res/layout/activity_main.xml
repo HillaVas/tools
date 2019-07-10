@@ -37,17 +37,6 @@
                     android:textStyle="bold"
                     app:fontFamily="@font/shabnam_fd" />
 
-                <android.support.v7.widget.AppCompatImageButton
-                    android:id="@+id/img_btn_login_main"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="right"
-                    android:background="?attr/selectableItemBackground"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_verified_user_black_24dp" />
-
                 <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/img_main_logo"
                     android:layout_width="wrap_content"

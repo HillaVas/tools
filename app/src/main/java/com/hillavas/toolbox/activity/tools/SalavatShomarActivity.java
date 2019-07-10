@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.Toolbar;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -35,18 +37,26 @@ public class SalavatShomarActivity extends AppCompatActivity {
     LinearLayout layoutSalvatShomaresh;
 
     int count = 0;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.layout_amlak_row2)
+    LinearLayout layoutAmlakRow2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_salavat);
         ButterKnife.bind(this);
+        hideSoftKeyboard();
+        layoutSalvatShomaresh.setFocusable(true);
+
+
     }
 
     @OnClick(R.id.img_btn_back)
     public void onImgBtnBackClicked() {
 
-        count = count+getPref();
+        count = count + getPref();
         setPref(count);
         finish();
     }
@@ -65,21 +75,19 @@ public class SalavatShomarActivity extends AppCompatActivity {
     @OnClick(R.id.layout_salvat_shomaresh)
     public void onLayoutSalvatShomareshClicked() {
         count++;
-        edtSalavatTedad.setText(String.valueOf(count));
+        txtSalavatTedadshomaresh.setText(String.valueOf(count));
 
     }
 
-    public void setPref(int count  )
-    {
+    public void setPref(int count) {
         SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
 
         editor.putInt("tedadkol", count);
         editor.apply();
     }
 
-    public int getPref()
-    {
-        int salavat =0 ;
+    public int getPref() {
+        int salavat = 0;
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
         String restoredText = prefs.getString("text", null);
         if (restoredText != null) {
@@ -92,7 +100,18 @@ public class SalavatShomarActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        count = count+getPref();
+        count = count + getPref();
         setPref(count);
     }
+
+    public void hideSoftKeyboard() {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+    }
+
+
+
+
 }

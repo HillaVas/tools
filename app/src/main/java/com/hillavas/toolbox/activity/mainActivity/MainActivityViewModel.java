@@ -73,6 +73,29 @@ public class MainActivityViewModel extends BaseViewModel<MainActivityState> {
 
     }
 
+
+    public void getSetting() {
+
+        Disposable disposable = mInteractor.getSetting().subscribe(state ->
+
+                {
+                    Timber.d("explore state received: %s", state.toString());
+                    showState(state);
+
+                }
+                , new RxRetrofitErrorConsumer() {
+                    @Override
+                    public void handleError(Throwable throwable, int id) {
+                        Timber.e(throwable, "receiving explore state failed");
+                        showState(MainActivityState.createFailedState());
+
+                    }
+                });
+
+        mCompositeDisposable.add(disposable);
+
+    }
+
     private void showState(MainActivityState state) {
         if (state.status == MainActivityState.STATUS_SUCCESS) {
             mStateLD.postValue(state);

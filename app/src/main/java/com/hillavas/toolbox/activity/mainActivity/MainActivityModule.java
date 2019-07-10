@@ -26,7 +26,7 @@ public class MainActivityModule {
 //                    return 1;
 //                else return position%3 == 0 ? 2 : 1;
 
-                return position%3 == 0 ? 2 : 1;
+                  return position%3 == 0 ? 2 : 1;
             }
         });
 

@@ -5,6 +5,7 @@ import com.hillavas.toolbox.servermodel.BaseModel;
 import com.hillavas.toolbox.servermodel.EarthquakeItem;
 import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
+import com.hillavas.toolbox.servermodel.SettingModel;
 
 import java.util.List;
 
@@ -22,6 +23,8 @@ public interface RestManager {
     Single<Response<BaseModel<List<EarthquakeItem>>>> getEarthquakeList(int catId, String token);
 
     Single<Response<BaseModel>> getBase();
+
+    Single<Response<BaseModel<SettingModel>>> getSetting(String token);
 
 
 

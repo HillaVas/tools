@@ -1,6 +1,7 @@
 package com.hillavas.toolbox.activity.mainActivity;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v7.widget.AppCompatImageButton;
@@ -28,6 +29,7 @@ import com.hillavas.toolbox.rvdivider.BottomOffsetDecoration;
 import com.hillavas.toolbox.rvdivider.GridDividerItemDecorationFixed;
 import com.hillavas.toolbox.rvdivider.SimpleItemDivider;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
+import com.hillavas.toolbox.servermodel.SettingModel;
 import com.hillavas.toolbox.utils.DPConverter;
 import com.hillavas.toolbox.utils.EndlessRecyclerViewScrollListener;
 
@@ -49,6 +51,7 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
 
     List<ItemHomeList> homeList = new ArrayList<>();
     List<ItemModel> _homeList = new ArrayList<>();
+    SettingModel setting ;
 
     LinearLayoutManager mLinearLayoutManager;
 //    GridLayoutManager mGridLayoutManager;
@@ -76,8 +79,6 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
     CompositeDisposable mCompositeDisposable;
 
 
-    @BindView(R.id.img_btn_login_main)
-    AppCompatImageButton imgBtnLoginMain;
     @BindView(R.id.img_main_logo)
     AppCompatImageView imgMainLogo;
     @BindView(R.id.txt_main_title)
@@ -105,8 +106,9 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
         startObserving();
 
 //        mViewModel.getBase();
-
+        mViewModel.getSetting();
         mViewModel.getHomeList();
+
 //        if (savedInstanceState != null) {
 //
 //          }
@@ -116,8 +118,20 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
     @Override
     public void handleState(MainActivityState state) {
         if (state.status == MainActivityState.STATUS_SUCCESS) {
-            homeList = state.list;
-            initRV();
+
+            if (state.list!=null){
+                homeList = state.list;
+                if ((homeList.size()%3)==2)
+
+                    homeList.add(ItemHomeList.createItemHomeList(0,0,true,"بزودی ...",false,null));
+//
+                initRV();
+            }else {
+                setting = state.settingModel;
+                toolbar.setBackgroundColor(Color.parseColor(setting.AppMainColor()));
+            }
+
+
         }
     }
 

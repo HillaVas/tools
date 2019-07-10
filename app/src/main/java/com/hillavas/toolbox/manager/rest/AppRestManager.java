@@ -5,6 +5,7 @@ import com.hillavas.toolbox.servermodel.BaseModel;
 import com.hillavas.toolbox.servermodel.EarthquakeItem;
 import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
+import com.hillavas.toolbox.servermodel.SettingModel;
 
 import java.util.List;
 
@@ -49,6 +50,12 @@ public final class AppRestManager implements RestManager{
     @Override
     public Single<Response<BaseModel>> getBase() {
         return mApi.getBase();
+    }
+
+    @Override
+    public Single<Response<BaseModel<SettingModel>>> getSetting(String token) {
+
+        return mApi.getSetting(token);
     }
 
 }

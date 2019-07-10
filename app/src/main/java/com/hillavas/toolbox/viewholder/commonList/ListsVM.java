@@ -8,9 +8,31 @@ import java.util.List;
 
 public class ListsVM extends BaseVHViewModel<ItemHomeList> {
 
-    String getImage(){
+//    String getImage(){
+//        List<AttachmentsModel> atModel =mObject.Attachments();
+//        return atModel.get(0).RelativeAddress();}
+
+    String getImage(String size){
+        String size_img ="h/";
+        String serverValue = "";
+        String output = "";
         List<AttachmentsModel> atModel =mObject.Attachments();
-        return atModel.get(0).RelativeAddress();}
+        serverValue = atModel.get(0).RelativeAddress();
+        String[] parts = serverValue.split("/");
+
+        size_img =size+"-";
+
+        parts[parts.length-1] = size_img+parts[parts.length-1];
+
+
+        for (int i=1 ; i<parts.length ; i++ ){
+            output = output+"/"+parts[i];
+        }
+
+
+        return output;
+
+    }
 
     boolean getHasChild(){
         return mObject.HasChild();

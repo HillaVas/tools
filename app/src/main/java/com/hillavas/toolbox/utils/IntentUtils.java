@@ -14,6 +14,7 @@ import com.hillavas.toolbox.activity.listActivity.ListActivity;
 import com.hillavas.toolbox.activity.tools.AmlakRahnEjareforushActivity;
 import com.hillavas.toolbox.activity.tools.BarCrcodeActivity;
 import com.hillavas.toolbox.activity.tools.QebleNamaActivity;
+import com.hillavas.toolbox.activity.tools.SalavatShomarActivity;
 import com.hillavas.toolbox.activity.webView.WebViewActivity;
 
 import static android.support.v4.app.ActivityCompat.startActivityForResult;
@@ -86,9 +87,19 @@ public static void openBarCodeActivity(Context context,int CategoryId,int conten
     context.startActivity(intent);
 }
 
+public static void openSalavatShomar(Context context,int CategoryId,int content)
+{
+    Intent intent = new Intent(context, SalavatShomarActivity.class);
+    intent.putExtra(EarthquakeActivity.CATEGGORY_ID_CONTENTTIP,CategoryId);
+    intent.putExtra(EarthquakeActivity.CONTENT_TYPE,content);
+
+    context.startActivity(intent);
+}
+
 public static void openMirror(Context context){
 
-    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE_SECURE);
+    cameraIntent.putExtra("android.intent.extras.CAMERA_FACING", 1);
     context.startActivity(cameraIntent);
 
 }

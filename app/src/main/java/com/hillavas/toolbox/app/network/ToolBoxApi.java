@@ -4,6 +4,7 @@ import com.hillavas.toolbox.servermodel.BaseModel;
 import com.hillavas.toolbox.servermodel.EarthquakeItem;
 import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
+import com.hillavas.toolbox.servermodel.SettingModel;
 
 import java.util.List;
 
@@ -47,6 +48,9 @@ public interface ToolBoxApi {
     @GET("toolbox/api")
     Single<Response<BaseModel>> getBase( );
 
+
+    @GET("toolbox/api/setting/get")
+    Single<Response<BaseModel<SettingModel>>> getSetting(@Header("Token") String token );
 
 
 

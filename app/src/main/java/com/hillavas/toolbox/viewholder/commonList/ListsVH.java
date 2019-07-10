@@ -45,7 +45,7 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
     @Override
     public void bind() {
 
-        Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage());
+        Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("l"));
         draweeRowHomeImg.setImageURI(uri);
 
         if (mVM.getShowName())
@@ -94,6 +94,10 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
                         break;
 
                     case  15   :
+                        IntentUtils.openBarCodeActivity(context,mVM.getCategoryId(),mVM.getContentType());
+                        break;
+
+                    case  13   :
                         IntentUtils.openBarCodeActivity(context,mVM.getCategoryId(),mVM.getContentType());
                         break;
 

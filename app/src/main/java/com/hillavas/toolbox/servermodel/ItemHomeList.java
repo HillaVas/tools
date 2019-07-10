@@ -35,7 +35,7 @@ public abstract class ItemHomeList implements Parcelable {
     @Json(name = "HasChild")
     public abstract boolean HasChild();
 
-
+    @Nullable
     @Json(name = "Attachments")
     public abstract List<AttachmentsModel> Attachments();
 
