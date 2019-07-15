@@ -28,27 +28,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/common_google_signin_btn_text_light_default"
+                    android:backgroundTint="@android:color/white"
                     android:gravity="fill_vertical"
 
-                    android:paddingRight="8dp"
+                    android:paddingLeft="8dp"
                     android:text="جعبه ابزار"
-                    android:textColor="@color/colorLikeRed"
+                    android:textColor="@color/colorWhite"
                     android:textStyle="bold"
-                    app:fontFamily="@font/shabnam_fd"
-                    android:visibility="gone"/>
-
-                <android.support.v7.widget.AppCompatImageButton
-                    android:id="@+id/img_btn_list_back"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="right"
-                    android:background="?attr/selectableItemBackground"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/ic_back_24dp"
-                    />
+                    app:fontFamily="@font/shabnam_fd" />
 
                 <android.support.v7.widget.AppCompatImageView
                     android:id="@+id/img_main_logo"
@@ -60,9 +47,9 @@
 
                 <android.support.v7.widget.AppCompatTextView
                     android:id="@+id/txt_main_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentStart="true"
                     android:layout_marginLeft="0dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="48dp"
@@ -73,6 +60,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:visibility="gone"
                     app:fontFamily="@font/shabnam_e" />
 
             </RelativeLayout>
@@ -80,7 +68,7 @@
 
         </android.support.v7.widget.Toolbar>
 
-        <include layout="@layout/content_list_activity" />
+        <include layout="@layout/content_splash" />
 
     </android.support.design.widget.AppBarLayout>
 

@@ -13,10 +13,6 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.hillavas.toolbox.model.ViewPosition;
 
-
-import java.util.List;
-import java.util.Random;
-
 public class Utils {
 
     public static ViewPosition getUpViewPosition(View view) {
@@ -54,6 +50,8 @@ public class Utils {
                         .build());
 
     }
+
+
 
 
 }

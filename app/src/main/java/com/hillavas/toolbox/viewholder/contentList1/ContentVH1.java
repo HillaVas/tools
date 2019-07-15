@@ -67,7 +67,7 @@ public class ContentVH1 extends BaseViewHolder<ContentVHAction1, ItemContentList
     @SuppressLint("WrongConstant")
     @Override
     public void bind() {
-        Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("l"));
+        Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("x"));
         draweeRowItemOntentImg1.setImageURI(uri);
         txtItemContentNameList1.setText(mVM.getTitle());
         txtRowItemOntent1.setText(mVM.getTxt());

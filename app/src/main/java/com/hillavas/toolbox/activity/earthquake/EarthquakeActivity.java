@@ -3,6 +3,7 @@ package com.hillavas.toolbox.activity.earthquake;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -21,8 +22,6 @@ import javax.inject.Provider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
-import timber.log.Timber;
 
 public class EarthquakeActivity extends BaseDaggerCompatActivity<EarthquakeActivityState, EarthquakeActivityViewModel> {
 
@@ -31,6 +30,9 @@ public class EarthquakeActivity extends BaseDaggerCompatActivity<EarthquakeActiv
     public static final String CONTENT_TYPE = "Content_Type";
     @BindView(R.id.r_list_home)
     RecyclerView rListEarthquake;
+    @BindView(R.id.swipeToRefreshMainActivity)
+    SwipeRefreshLayout swipeToRefreshMainActivity;
+    private boolean refreshFlag = false;
 
     private int categoryId = 0;
     private int contentType = 0;
@@ -58,6 +60,18 @@ public class EarthquakeActivity extends BaseDaggerCompatActivity<EarthquakeActiv
 
 
         ButterKnife.bind(this);
+        swipeToRefreshMainActivity.setColorSchemeResources(R.color.colorAccent);
+        swipeToRefreshMainActivity.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                if (!refreshFlag){
+                    refreshFlag= true;
+                    mViewModel.getEarthquakeList(categoryId);
+                }
+
+            }
+        });
         startObserving();
         mViewModel.getEarthquakeList(categoryId);
     }
@@ -65,11 +79,17 @@ public class EarthquakeActivity extends BaseDaggerCompatActivity<EarthquakeActiv
     @Override
     public void handleState(EarthquakeActivityState state) {
 
-        if (state.status == ContentTipActivityState.STATUS_SUCCESS){
+        if (state.status == ContentTipActivityState.STATUS_SUCCESS) {
+            if (refreshFlag)
+            {
+                refreshFlag=false;
+                swipeToRefreshMainActivity.setRefreshing(false);
+            }
+
             mList = state.list;
             if (mList.size() != 0) {
                 initRV();
-            }else {
+            } else {
                 finish();
             }
         }
@@ -84,16 +104,11 @@ public class EarthquakeActivity extends BaseDaggerCompatActivity<EarthquakeActiv
         mContentRVAdapter.submitList(mList);
 
 
-
-
-
         mGridLayoutManager = new GridLayoutManager(this, 1);
 
 
-
-            mContentRVAdapter.submitList(mList);
-            rListEarthquake.setAdapter(mContentRVAdapter);
-
+        mContentRVAdapter.submitList(mList);
+        rListEarthquake.setAdapter(mContentRVAdapter);
 
 
         rListEarthquake.setLayoutManager(mGridLayoutManager);
@@ -108,9 +123,6 @@ public class EarthquakeActivity extends BaseDaggerCompatActivity<EarthquakeActiv
 //                mViewModel.incrementPage();
             }
         });
-
-
-
 
 
     }

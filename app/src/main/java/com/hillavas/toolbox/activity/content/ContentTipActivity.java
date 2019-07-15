@@ -1,15 +1,21 @@
 package com.hillavas.toolbox.activity.content;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -20,6 +26,7 @@ import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseDaggerCompatActivity;
 import com.hillavas.toolbox.rvdivider.SimpleItemDivider;
 import com.hillavas.toolbox.servermodel.ItemContentList;
+import com.hillavas.toolbox.servermodel.SettingModel;
 import com.hillavas.toolbox.utils.EndlessRecyclerViewScrollListener;
 
 import java.util.List;
@@ -33,6 +40,8 @@ import butterknife.OnClick;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import timber.log.Timber;
+
+import static com.hillavas.toolbox.consts.Const.MY_PREFS_NAME;
 
 public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActivityState, ContentTipActivityViewModel> {
 
@@ -56,6 +65,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
     CompositeDisposable mDisposable;
 
 
+
     private int categoryId = 0;
     private int contentType = 0;
     private double attachmentType = 1;
@@ -63,6 +73,8 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
     GridLayoutManager mGridLayoutManager;
 
     private List<ItemContentList> mList;
+
+    SettingModel setting;
 
     @BindView(R.id.img_btn_back)
     AppCompatImageButton imgBtnBack;
@@ -80,6 +92,8 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
     RecyclerView rListContent1;
     @BindView(R.id.www1)
     WebView www1;
+    @BindView(R.id.coordin_content)
+    CoordinatorLayout coordinContent;
 
     @Override
     public void handleState(ContentTipActivityState state) {
@@ -102,7 +116,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
                     initRV();
                 } else if (contentType == 19) {
                     initRV2();
-                }else if (contentType ==26){
+                } else if (contentType == 26) {
                     WebSettings webSettings = www1.getSettings();
                     webSettings.setJavaScriptEnabled(true);
 
@@ -123,7 +137,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
         Intent mIntent = getIntent();
         categoryId = mIntent.getIntExtra(CATEGGORY_ID_CONTENTTIP, 0);
         contentType = mIntent.getIntExtra(CONTENT_TYPE, 0);
-
+        getPref();
 //        contentType = 19;
 
         if (contentType == 0)
@@ -134,8 +148,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
             setContentView(R.layout.activity_content_tip_list1);
         } else if (contentType == 19) {
             setContentView(R.layout.activity_content_tip_list1);
-        }
-        else if (contentType == 26) {
+        } else if (contentType == 26) {
             setContentView(R.layout.activity_content_web);
         }
 
@@ -145,6 +158,14 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
         ButterKnife.bind(this);
         createViewModel(ContentTipActivityViewModel.class);
 
+
+        toolbar.setBackgroundColor(Color.parseColor(setting.AppMainColor()));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor(setting.AppBgColor()));
+        }
+        coordinContent.setBackgroundColor(Color.parseColor(setting.AppMainColor()));
 
         startObserving();
         mViewModel.getContentTip(categoryId);
@@ -284,6 +305,16 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
 
         mDisposable.add(disposable);
 
+    }
+
+
+    public SettingModel getPref() {
+
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        String bgColor = prefs.getString("AppBgColor", null);
+        String mainColor = prefs.getString("AppMainColor", null);
+        setting = SettingModel.createSetting(bgColor, mainColor, false, null, null, null);
+        return setting;
     }
 
 

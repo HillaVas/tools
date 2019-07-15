@@ -1,25 +1,34 @@
 package com.hillavas.toolbox.activity.tools;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hillavas.toolbox.R;
+import com.hillavas.toolbox.servermodel.SettingModel;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.hillavas.toolbox.consts.Const.MY_PREFS_NAME;
+
 public class SalavatShomarActivity extends AppCompatActivity {
-    public static final String MY_PREFS_NAME = "MyPrefSalavat";
+
+    SettingModel setting;
 
     @BindView(R.id.img_btn_back)
     AppCompatImageButton imgBtnBack;
@@ -41,6 +50,8 @@ public class SalavatShomarActivity extends AppCompatActivity {
     Toolbar toolbar;
     @BindView(R.id.layout_amlak_row2)
     LinearLayout layoutAmlakRow2;
+    @BindView(R.id.coordin_salavat)
+    CoordinatorLayout coordinSalavat;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +61,14 @@ public class SalavatShomarActivity extends AppCompatActivity {
         hideSoftKeyboard();
         layoutSalvatShomaresh.setFocusable(true);
 
+        getPref();
+        toolbar.setBackgroundColor(Color.parseColor(setting.AppMainColor()));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor(setting.AppBgColor()));
+        }
+        coordinSalavat.setBackgroundColor(Color.parseColor(setting.AppMainColor()));
 
     }
 
@@ -110,8 +129,6 @@ public class SalavatShomarActivity extends AppCompatActivity {
             inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
     }
-
-
 
 
 }

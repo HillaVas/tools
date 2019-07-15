@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
-    android:id="@+id/coordin_content"
+
+    android:id="@+id/coordin_flashlight"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -49,6 +50,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_contenttip_list1" />
+    <include layout="@layout/content_flashlight" />
 
 </android.support.design.widget.CoordinatorLayout>

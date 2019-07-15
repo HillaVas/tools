@@ -13,18 +13,24 @@ public class HomeVM extends BaseVHViewModel<ItemHomeList> {
         String serverValue = "";
         String output = "";
         List<AttachmentsModel> atModel =mObject.Attachments();
-        if (atModel!=null){
-            serverValue = atModel.get(0).RelativeAddress();
-            String[] parts = serverValue.split("/");
+        if (atModel!=null ){
+            if (size.equals("")){
+                output = atModel.get(0).RelativeAddress();
+            }else {
+                serverValue = atModel.get(0).RelativeAddress();
+                String[] parts = serverValue.split("/");
 
-            size_img =size+"-";
+                size_img =size+"-";
 
-            parts[parts.length-1] = size_img+parts[parts.length-1];
+                parts[parts.length-1] = size_img+parts[parts.length-1];
 
 
-            for (int i=1 ; i<parts.length ; i++ ){
-                output = output+"/"+parts[i];
+                for (int i=1 ; i<parts.length ; i++ ){
+                    output = output+"/"+parts[i];
+                }
             }
+
+
         }
 
       return output;
@@ -41,6 +47,11 @@ public class HomeVM extends BaseVHViewModel<ItemHomeList> {
         return mObject.Name();
     }
     boolean getShowName(){return mObject.ShowName();}
+    int getContentType (){
+        if (mObject.ContentType()!=null)
+         return mObject.ContentType();
+        return 1000;
+    }
 
 
 }

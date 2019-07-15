@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.provider.AlarmClock;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -80,9 +81,9 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
 //        }
 
 
-       if (mVM.getImage("l")!= ""){
+       if (!mVM.getImage("").equals("")){
 
-           Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("l"));
+           Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("x"));
            draweeRowHomeImg.setImageURI(uri);
            if (mVM.getShowName())
              txtRowItemName.setText(mVM.getName());
@@ -96,7 +97,7 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
               }
        }
         else{
-           Uri myUri = Uri.parse(mVM.getImage("l"));
+           Uri myUri = Uri.parse(mVM.getImage("x"));
             draweeRowHomeImg.setImageURI(myUri);
 //            draweeRowHomeImg.setImageURI(mVM.getImage());
            ViewGroup.LayoutParams lp = draweeRowHomeImg.getLayoutParams();
@@ -178,6 +179,11 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
                     case "ابزار" :
 
                         break;
+                    case "ریمایندر" :
+                        Intent i = new Intent(AlarmClock.ACTION_SET_ALARM);
+                       context.startActivity(i);
+
+                        break;
 
                     case "تعبیر خواب" :
 
@@ -185,6 +191,12 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
 
 
                 }
+            }
+
+            if (mVM.getContentType()== 26)
+            {
+                IntentUtils.openContentTip(context,mVM.getCategoryId(),mVM.getContentType());
+
             }
 
 

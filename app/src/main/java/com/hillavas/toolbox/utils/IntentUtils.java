@@ -13,6 +13,7 @@ import com.hillavas.toolbox.activity.earthquake.EarthquakeActivity;
 import com.hillavas.toolbox.activity.listActivity.ListActivity;
 import com.hillavas.toolbox.activity.tools.AmlakRahnEjareforushActivity;
 import com.hillavas.toolbox.activity.tools.BarCrcodeActivity;
+import com.hillavas.toolbox.activity.tools.FlashLightActivity;
 import com.hillavas.toolbox.activity.tools.QebleNamaActivity;
 import com.hillavas.toolbox.activity.tools.SalavatShomarActivity;
 import com.hillavas.toolbox.activity.webView.WebViewActivity;
@@ -90,6 +91,16 @@ public static void openBarCodeActivity(Context context,int CategoryId,int conten
 public static void openSalavatShomar(Context context,int CategoryId,int content)
 {
     Intent intent = new Intent(context, SalavatShomarActivity.class);
+    intent.putExtra(EarthquakeActivity.CATEGGORY_ID_CONTENTTIP,CategoryId);
+    intent.putExtra(EarthquakeActivity.CONTENT_TYPE,content);
+
+    context.startActivity(intent);
+}
+
+
+public static void openFlashLight(Context context,int CategoryId,int content)
+{
+    Intent intent = new Intent(context, FlashLightActivity.class);
     intent.putExtra(EarthquakeActivity.CATEGGORY_ID_CONTENTTIP,CategoryId);
     intent.putExtra(EarthquakeActivity.CONTENT_TYPE,content);
 

@@ -1,10 +1,14 @@
 package com.hillavas.toolbox.activity.mainActivity;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v7.widget.AppCompatImageButton;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,16 +16,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
-import com.dgreenhalgh.android.simpleitemdecoration.grid.GridBottomOffsetItemDecoration;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.google.android.flexbox.AlignItems;
-import com.google.android.flexbox.FlexDirection;
-import com.google.android.flexbox.FlexWrap;
-import com.google.android.flexbox.FlexboxLayoutManager;
-import com.google.android.flexbox.JustifyContent;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseDaggerCompatActivity;
 import com.hillavas.toolbox.dbModel.ItemModel;
@@ -41,20 +40,25 @@ import javax.inject.Provider;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import timber.log.Timber;
+
+import static com.hillavas.toolbox.consts.Const.MY_PREFS_NAME;
 
 public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, MainActivityViewModel> {
 
 
     List<ItemHomeList> homeList = new ArrayList<>();
     List<ItemModel> _homeList = new ArrayList<>();
-    SettingModel setting ;
+    SettingModel setting;
+    String bg_color ;
+    String main_color ;
+
+    private boolean refreshFlag = false;
 
     LinearLayoutManager mLinearLayoutManager;
-//    GridLayoutManager mGridLayoutManager;
+    //    GridLayoutManager mGridLayoutManager;
     StaggeredGridLayoutManager mStaggeredGridLayoutManager;
 
 
@@ -91,23 +95,47 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
     RecyclerView rListHome;
     @BindView(R.id.nav_view)
     NavigationView navView;
+    @BindView(R.id.swipeToRefreshMainActivity)
+    SwipeRefreshLayout swipeToRefreshMainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        Intent mIntent = getIntent();
+        bg_color = mIntent.getStringExtra("BG_COLOR");
+        main_color = mIntent.getStringExtra("MAIN_COLOR");
+        toolbar.setBackgroundColor(Color.parseColor(main_color));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor(bg_color));
+        }
 
         Fresco.initialize(this);
 
 
         createViewModel(MainActivityViewModel.class);
+
+        swipeToRefreshMainActivity.setColorSchemeResources(R.color.colorAccent);
+
         startObserving();
 
 //        mViewModel.getBase();
-        mViewModel.getSetting();
+//        mViewModel.getSetting();
         mViewModel.getHomeList();
+        swipeToRefreshMainActivity.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+                  if (!refreshFlag){
+                    refreshFlag= true;
+                    mViewModel.getHomeList();
+                }
+
+            }
+        });
 
 //        if (savedInstanceState != null) {
 //
@@ -119,16 +147,19 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
     public void handleState(MainActivityState state) {
         if (state.status == MainActivityState.STATUS_SUCCESS) {
 
-            if (state.list!=null){
-                homeList = state.list;
-                if ((homeList.size()%3)==2)
+            if (refreshFlag)
+            {
+                refreshFlag=false;
+                swipeToRefreshMainActivity.setRefreshing(false);
+            }
 
-                    homeList.add(ItemHomeList.createItemHomeList(0,0,true,"بزودی ...",false,null));
+            if (state.list != null) {
+                homeList = state.list;
+//                if ((homeList.size() % 3) == 2)
+//
+//                    homeList.add(ItemHomeList.createItemHomeList(0, 0, true, "بزودی ...", false, null));
 //
                 initRV();
-            }else {
-                setting = state.settingModel;
-                toolbar.setBackgroundColor(Color.parseColor(setting.AppMainColor()));
             }
 
 
@@ -142,52 +173,52 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
     }
 
 
-     public void initRV1() {
+    public void initRV1() {
 
-         int divider = 0;
-         mMainRVAdapter = mMainRVAdapterProvider.get();
-         mMainRVAdapter.submitList(homeList);
- //        mGridLayoutManager = new GridLayoutManager(this,2);
-         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
- //        mLinearLayoutManager = new LinearLayoutManager(this);
-         rListHome.setAdapter(mMainRVAdapter);
-         rListHome.setLayoutManager(mStaggeredGridLayoutManager);
- //        rListHome.setLayoutManager(mGridLayoutManager);
- //        rListHome.setLayoutManager(mLinearLayoutManager);
-         rListHome.addItemDecoration(new SimpleItemDivider(divider, divider, 0, divider));
-         rListHome.addItemDecoration(new SimpleItemDivider(0, 0, divider, 0), 0);
-         rListHome.addOnScrollListener(new EndlessRecyclerViewScrollListener(mStaggeredGridLayoutManager) {
- //        rListHome.addOnScrollListener(new EndlessRecyclerViewScrollListener(mGridLayoutManager) {
- //        rListHome.addOnScrollListener(new EndlessRecyclerViewScrollListener(mLinearLayoutManager) {
-             @Override
-             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
- //                mViewModel.incrementPage();
-             }
-         });
+        int divider = 0;
+        mMainRVAdapter = mMainRVAdapterProvider.get();
+        mMainRVAdapter.submitList(homeList);
+        //        mGridLayoutManager = new GridLayoutManager(this,2);
+        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        //        mLinearLayoutManager = new LinearLayoutManager(this);
+        rListHome.setAdapter(mMainRVAdapter);
+        rListHome.setLayoutManager(mStaggeredGridLayoutManager);
+        //        rListHome.setLayoutManager(mGridLayoutManager);
+        //        rListHome.setLayoutManager(mLinearLayoutManager);
+        rListHome.addItemDecoration(new SimpleItemDivider(divider, divider, 0, divider));
+        rListHome.addItemDecoration(new SimpleItemDivider(0, 0, divider, 0), 0);
+        rListHome.addOnScrollListener(new EndlessRecyclerViewScrollListener(mStaggeredGridLayoutManager) {
+            //        rListHome.addOnScrollListener(new EndlessRecyclerViewScrollListener(mGridLayoutManager) {
+            //        rListHome.addOnScrollListener(new EndlessRecyclerViewScrollListener(mLinearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                //                mViewModel.incrementPage();
+            }
+        });
 
-         Disposable disposable = mMainRVAdapter.getClickPS()
-                 .subscribe(action -> {
-                     Timber.d("action add to play list");
-                     int i = action.getAdapterPosition();
-                     ItemHomeList videoModel = (ItemHomeList) getIntent().getParcelableExtra("parcel_data_video_model");
- //                    int s = mList.get(i).id();
-
-
-
- //                    String videoId = "99";
- //
- //                    mViewModel.addPlaylist(i, videoId);
- //                    finish();
+        Disposable disposable = mMainRVAdapter.getClickPS()
+                .subscribe(action -> {
+                    Timber.d("action add to play list");
+                    int i = action.getAdapterPosition();
+                    ItemHomeList videoModel = (ItemHomeList) getIntent().getParcelableExtra("parcel_data_video_model");
+                    //                    int s = mList.get(i).id();
 
 
-                 }, t ->
-                 {
-                     Timber.e(t, "FAVOURITE sending video list action failed");
-                 });
+                    //                    String videoId = "99";
+                    //
+                    //                    mViewModel.addPlaylist(i, videoId);
+                    //                    finish();
 
-         mDisposable.add(disposable);
 
-     }
+                }, t ->
+                {
+                    Timber.e(t, "FAVOURITE sending video list action failed");
+                });
+
+        mDisposable.add(disposable);
+
+    }
+
     private void initRV() {
         int divider;
         if (this != null) {
@@ -215,6 +246,7 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
 //        mRvCategoryList.setBackgroundColor(Color.TRANSPARENT);
         rListHome.addItemDecoration(new BottomOffsetDecoration(divider));
     }
+
     private void initRV2() {
         int divider;
         if (this != null) {
@@ -233,8 +265,6 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
         rListHome.addItemDecoration(new BottomOffsetDecoration(divider));
 
 
-
-
 //        FlexboxLayoutManager layoutManager = new FlexboxLayoutManager(this);
 //        layoutManager.setFlexDirection(FlexDirection.ROW);
 //        layoutManager.setJustifyContent(JustifyContent.CENTER);
@@ -246,6 +276,15 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
 //        mRvCategoryList.addItemDecoration(mGridDividerItemDecorationFixed);
 //        mRvCategoryList.addItemDecoration(new GridBottomOffsetItemDecoration(divider, 2));
 //        mRvCategoryList.setBackgroundColor(Color.TRANSPARENT);
+    }
+
+    public SettingModel getPref() {
+
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        String bgColor = prefs.getString("text", null);
+        String mainColor = prefs.getString("text", null);
+        setting =  SettingModel.createSetting(bgColor,mainColor,false,null,null,null);
+        return setting;
     }
 
 

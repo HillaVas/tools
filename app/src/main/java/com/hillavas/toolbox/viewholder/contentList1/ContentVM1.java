@@ -14,20 +14,27 @@ public class ContentVM1 extends BaseVHViewModel<ItemContentList> {
         String serverValue = "";
         String output = "";
         List<AttachmentsModel> atModel =mObject.Attachments();
-        serverValue = atModel.get(0).RelativeAddress();
-        String[] parts = serverValue.split("/");
+        if (atModel!=null ){
+            if (size.equals("")){
+                output = atModel.get(0).RelativeAddress();
+            }else {
+                serverValue = atModel.get(0).RelativeAddress();
+                String[] parts = serverValue.split("/");
 
-        size_img =size+"-";
+                size_img =size+"-";
 
-       parts[parts.length-1] = size_img+parts[parts.length-1];
+                parts[parts.length-1] = size_img+parts[parts.length-1];
 
 
-        for (int i=1 ; i<parts.length ; i++ ){
-         output = output+"/"+parts[i];
+                for (int i=1 ; i<parts.length ; i++ ){
+                    output = output+"/"+parts[i];
+                }
+            }
+
+
         }
 
-
-      return output;
+        return output;
 
     }
 

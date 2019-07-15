@@ -50,25 +50,12 @@ public class List1RVH extends BaseViewHolder<List1RVHAction, ItemHomeList,List1R
     @Override
     public void bind() {
 
-        Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("l"));
+        Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("x"));
         draweeRowHomeImg.setImageURI(uri);
 
         if (mVM.getShowName())
             txtRowItemName.setText(mVM.getName());
 
-
-//        if (mVM.getImage()!= null){
-//            draweeRowHomeImg.setImageURI(mVM.getImage());
-//            if (mVM.getObject().name()=="بانک")
-//                draweeRowHomeImg.setAspectRatio(1.7f);
-//            else if (mVM.getObject().name()=="موبایل")
-//                draweeRowHomeImg.setAspectRatio(1.4f);
-//            else if (mVM.getObject().name()=="ترافیک")
-//                draweeRowHomeImg.setAspectRatio(2.2f);
-//        }
-
-//        else
-//            draweeRowHomeImg.setImageResource(R.drawable.drawer_cover);
     }
 
     @Override
@@ -120,7 +107,7 @@ public class List1RVH extends BaseViewHolder<List1RVHAction, ItemHomeList,List1R
 
 
                         case  13   :
-                            context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+                            IntentUtils.openFlashLight(context,mVM.getCategoryId(),mVM.getContentType());
 
                             break;
 

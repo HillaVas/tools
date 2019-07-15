@@ -4,4 +4,5 @@ public class Const {
 
 	public static final double QIBLA_LATITUDE = 21.4225;
 	public static final double QIBLA_LONGITUDE = 39.8262;
+	public static final String MY_PREFS_NAME = "MyPrefSalavat";
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--<color name="colorPrimary">#e13939</color>-->
-    <color name="colorPrimary">#074e40</color>
-    <color name="colorPrimaryDark">#074e40</color>
-    <!--<color name="colorPrimaryDark">#c03231</color>-->
-    <color name="colorAccent">#074e40</color>
-    <!--<color name="colorAccent">#d31919</color>-->
+    <color name="colorPrimary">#e13939</color>
+    <!--<color name="colorPrimary">#074e40</color>-->
+    <!--<color name="colorPrimaryDark">#074e40</color>-->
+    <color name="colorPrimaryDark">#c03231</color>
+    <!--<color name="colorAccent">#074e40</color>-->
+    <color name="colorAccent">#d31919</color>
     <color name="colorBackground">#f5f4f4</color>
     <color name="semiGrey">#cecdcd</color>
     <color name="colorDefaultActionSinglePlayer">#8c8c8d</color>

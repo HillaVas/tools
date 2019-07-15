@@ -8,6 +8,8 @@ import com.hillavas.toolbox.activity.listActivity.ListActivity;
 import com.hillavas.toolbox.activity.listActivity.ListActivityModule;
 import com.hillavas.toolbox.activity.mainActivity.MainActivity;
 import com.hillavas.toolbox.activity.mainActivity.MainActivityModule;
+import com.hillavas.toolbox.activity.splash.SplashActivity;
+import com.hillavas.toolbox.activity.splash.SplashActivityModule;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -26,6 +28,9 @@ public abstract class BuildersModule {
 
     @ContributesAndroidInjector(modules = EarthquakeActivityModule.class)
     public abstract EarthquakeActivity bindEarthquakeActivity();
+
+    @ContributesAndroidInjector(modules = SplashActivityModule.class)
+    public abstract SplashActivity bindSplashActivity();
 
 
 }

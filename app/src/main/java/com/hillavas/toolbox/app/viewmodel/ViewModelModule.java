@@ -9,6 +9,7 @@ import com.hillavas.toolbox.activity.earthquake.EarthquakeActivityViewModel;
 import com.hillavas.toolbox.activity.listActivity.ListActivityViewModel;
 import com.hillavas.toolbox.activity.mainActivity.MainActivityViewModel;
 import com.hillavas.toolbox.activity.mainActivity.MainViewModelModule;
+import com.hillavas.toolbox.activity.splash.SplashActivityViewModel;
 
 import dagger.Binds;
 import dagger.Module;
@@ -41,6 +42,12 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(clazz = EarthquakeActivityViewModel.class)
     abstract ViewModel bindEarthquakeActivityViewModel(EarthquakeActivityViewModel viewModel);
+
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(clazz = SplashActivityViewModel.class)
+    abstract ViewModel bindSplashActivityViewModel(SplashActivityViewModel viewModel);
 
 
 
