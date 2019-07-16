@@ -67,7 +67,7 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
             draweeRowHomeImg.setAspectRatio(3f);
         }
         else {
-            draweeRowHomeImg.setAspectRatio(1.6f);
+            draweeRowHomeImg.setAspectRatio(1.7f);
         }
 
 

@@ -153,11 +153,7 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
 
             if (state.list != null) {
                 homeList = state.list;
-                homeList.add(homeList.get(0));
-                homeList.add(homeList.get(0));
-                homeList.add(homeList.get(0));
-                homeList.add(homeList.get(0));
-//                homeList.add(homeList.get(0));
+                
 //                if ((homeList.size() % 3) == 2)
 //
 //                    homeList.add(ItemHomeList.createItemHomeList(0, 0, true, "بزودی ...", false, null));
@@ -223,30 +219,16 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
     }
 
     private void initRV() {
-        int divider;
-        if (this != null) {
-            divider = (int) this.getResources().getDimension(R.dimen.yellow);
-        } else {
-            divider = (int) DPConverter.convertDpToPx(6f);
-        }
+        int divider = 0;
 
         mGridDividerItemDecorationFixed = mGridDividerItemDecorationFixedProvider.get();
         mMainRVAdapter = mMainRVAdapterProvider.get();
         mGridLayoutManager = mGridLayoutManagerProvider.get();
-//        homeList.set(16,homeList.get(15));
-//        homeList.add(homeList.get(15));
-//        homeList.add(homeList.get(0));
-//        homeList.add(homeList.get(1));
-//        homeList.add(homeList.get(2));
         mMainRVAdapter.submitList(homeList);
         rListHome.setAdapter(mMainRVAdapter);
         rListHome.setLayoutManager(mGridLayoutManager);
-//        SimpleItemDivider simpleItemDivider = new SimpleItemDivider(divider, 0, divider, 0);
-        BottomOffsetDecoration simpleItemDivider = new BottomOffsetDecoration(0, divider, divider, 0, 100);
+        BottomOffsetDecoration simpleItemDivider = new BottomOffsetDecoration(0, divider, divider, 0, 0);
         rListHome.addItemDecoration(simpleItemDivider, 0);
-//        mRvCategoryList.addItemDecoration(mGridDividerItemDecorationFixed);
-//        mRvCategoryList.addItemDecoration(new GridBottomOffsetItemDecoration(divider, 2));
-//        mRvCategoryList.setBackgroundColor(Color.TRANSPARENT);
         rListHome.addItemDecoration(new BottomOffsetDecoration(divider));
     }
 
