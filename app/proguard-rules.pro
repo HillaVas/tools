@@ -236,7 +236,7 @@ native <methods>;
 
 # stetho
 -keep class com.facebook.stetho.** { *; }
--keep class jp.wasabeef.takt.** { *; }
+#-keep class jp.wasabeef.takt.** { *; }
 
 -keep class com.squareup.haha.trove.** {*;}
 -dontwarn com.squareup.haha.trove.**

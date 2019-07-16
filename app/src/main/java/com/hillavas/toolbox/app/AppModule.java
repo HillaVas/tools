@@ -1,10 +1,7 @@
 package com.hillavas.toolbox.app;
 
-import com.hillavas.toolbox.app.db.DataBaseModule;
 import com.hillavas.toolbox.app.network.NetworkModule;
 import com.hillavas.toolbox.app.pref.SharedPrefModule;
-import com.hillavas.toolbox.manager.db.AppDbManager;
-import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.manager.pref.AppPrefManager;
 import com.hillavas.toolbox.manager.pref.PrefManager;
 import com.hillavas.toolbox.manager.rest.AppRestManager;
@@ -17,13 +14,13 @@ import dagger.Module;
 import dagger.Provides;
 import io.reactivex.disposables.CompositeDisposable;
 
-@Module(includes = {NetworkModule.class, SharedPrefModule.class, DataBaseModule.class})
+@Module(includes = {NetworkModule.class, SharedPrefModule.class})
 abstract class AppModule {
 
-
-    @Binds
-    @Singleton
-    abstract DBManager provideDBManager(AppDbManager dbManager);
+//
+//    @Binds
+//    @Singleton
+//    abstract DBManager provideDBManager(AppDbManager dbManager);
 
     @Binds
     @Singleton

@@ -2,6 +2,8 @@ package com.hillavas.toolbox.servermodel;
 
 import android.os.Parcelable;
 
+import androidx.annotation.Nullable;
+
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
@@ -9,7 +11,7 @@ import com.squareup.moshi.Moshi;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
+
 
 @AutoValue
 public abstract class ItemContentList implements Parcelable {
@@ -49,10 +51,10 @@ public abstract class ItemContentList implements Parcelable {
 
 
 
-    public static AutoValue_ItemContentList createItemContentList(String Title,String InternetAddress ,String Desc,int LikeCount,int ViewCount,int OrderPriority,boolean IsLiked, List<AttachmentsModel> Attachments )
-    {
-        return new AutoValue_ItemContentList(Title,InternetAddress,Desc,LikeCount,ViewCount,OrderPriority,IsLiked,Attachments);
-    }
+//    public static AutoValue_ItemContentList createItemContentList(String Title,String InternetAddress ,String Desc,int LikeCount,int ViewCount,int OrderPriority,boolean IsLiked, List<AttachmentsModel> Attachments )
+//    {
+//        return new AutoValue_ItemContentList(Title,InternetAddress,Desc,LikeCount,ViewCount,OrderPriority,IsLiked,Attachments);
+//    }
 
 
 

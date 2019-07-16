@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
-apply plugin: 'io.objectbox'
+//apply plugin: 'io.objectbox'
 android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.hillavas.toolbox"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 3
-        versionName "1.1.3"
+        versionCode 1
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -27,7 +27,7 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 dependencies {
-    implementation 'ir.adad.androidsdkv3:AdadSDKv3:3.3'
+//    implementation 'ir.adad.androidsdkv3:AdadSDKv3:3.3'
     //    implementation fileTree(dir: 'libs', include: ['*.jar'])
     //    implementation 'com.android.support:appcompat-v7:28.0.0'
     //    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
@@ -37,11 +37,11 @@ dependencies {
 //    implementation 'com.google.firebase:firebase-core:16.0.8'
 }
 apply from: "dependencies.gradle"
-dependencies {
-    implementation project(':objectbox-rxjava')
-}
+//dependencies {
+//    implementation project(':objectbox-rxjava')
+//}
 apply plugin: 'com.google.gms.google-services'
 
 dependencies {
-    implementation 'com.android.support.constraint:constraint-layout:+'
+//    implementation 'com.android.support.constraint:constraint-layout:+'
 }

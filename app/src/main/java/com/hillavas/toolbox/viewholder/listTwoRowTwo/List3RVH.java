@@ -5,7 +5,6 @@ import android.view.View;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseViewHolder;
-import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 
 import javax.inject.Inject;
@@ -16,8 +15,8 @@ import io.reactivex.subjects.PublishSubject;
 
 public class List3RVH extends BaseViewHolder<List3RVHAction, ItemHomeList, List3RVM> {
 
-    @Inject
-    protected DBManager mDBManager;
+//    @Inject
+//    protected DBManager mDBManager;
 
 
     @BindView(R.id.drawee_row_home_img2)

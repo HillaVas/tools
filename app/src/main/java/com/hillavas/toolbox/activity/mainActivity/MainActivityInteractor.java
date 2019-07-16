@@ -5,7 +5,6 @@ import com.hillavas.toolbox.app.network.DefaultRetrofitRetryHandler;
 import com.hillavas.toolbox.app.network.RetrofitErrorHandler;
 import com.hillavas.toolbox.app.network.RetrofitErrorMessageFactory;
 import com.hillavas.toolbox.base.BaseInteractor;
-import com.hillavas.toolbox.dbModel.ItemModel;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 import com.hillavas.toolbox.servermodel.SettingModel;
 

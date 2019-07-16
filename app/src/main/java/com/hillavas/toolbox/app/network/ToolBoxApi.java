@@ -8,16 +8,11 @@ import com.hillavas.toolbox.servermodel.SettingModel;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
 
 import io.reactivex.Single;
 import retrofit2.Response;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 @SuppressWarnings("WeakerAccess")

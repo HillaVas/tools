@@ -2,6 +2,8 @@ package com.hillavas.toolbox.servermodel;
 
 import android.os.Parcelable;
 
+import androidx.annotation.Nullable;
+
 import com.google.auto.value.AutoValue;
 import com.squareup.moshi.Json;
 import com.squareup.moshi.JsonAdapter;
@@ -9,7 +11,7 @@ import com.squareup.moshi.Moshi;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
+
 
 @AutoValue
 public abstract class SettingModel implements Parcelable {

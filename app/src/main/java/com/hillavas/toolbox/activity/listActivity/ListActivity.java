@@ -20,7 +20,6 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseDaggerCompatActivity;
-import com.hillavas.toolbox.dbModel.ItemModel;
 import com.hillavas.toolbox.rvdivider.SimpleItemDivider;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 import com.hillavas.toolbox.servermodel.SettingModel;
@@ -53,7 +52,6 @@ public class ListActivity extends BaseDaggerCompatActivity<ListActivityState, Li
 
 
     List<ItemHomeList> homeList = new ArrayList<>();
-    List<ItemModel> _homeList = new ArrayList<>();
     SettingModel setting;
 
     //    LinearLayoutManager mLinearLayoutManager;

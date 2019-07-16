@@ -31,8 +31,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn"
-                android:text="Scan Barcode or QR code"
-                android:layout_marginBottom="40dp"/>
+                android:text="  اسکن  "
+                android:textSize="25sp"
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/bg_edittext_yelow"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,7 +45,7 @@
                 android:textColor="#000"
                 android:layout_marginTop="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Result will be here"
+                android:text="نتیجه را اینجا ببینید "
                 android:gravity="center"/>
         </LinearLayout>
 

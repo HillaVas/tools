@@ -52,6 +52,7 @@ public class SplashActivity extends BaseDaggerCompatActivity<SplashActivityState
             intent.putExtra("BG_COLOR",setting.AppBgColor());
             intent.putExtra("MAIN_COLOR",setting.AppMainColor());
             startActivity(intent);
+            finish();
         }
     }
 

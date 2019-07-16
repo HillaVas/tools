@@ -104,9 +104,9 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
             if (mList.size() != 0) {
 
 
-                if (contentType == 3)
-                    imgContentImageBig.setImageResource(R.drawable.mobile_fix_code2);
-                else if (contentType == 0) {
+//                if (contentType == 3)
+//                    imgContentImageBig.setImageResource(R.drawable.mobile_fix_code2);
+                if (contentType == 0) {
                     txtContentTipDetail.setText(mList.get(0).Desc());
                     txtContentTipName.setText(mList.get(0).Title());
                     Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api" + mList.get(0).Attachments().get(0).RelativeAddress());
@@ -144,9 +144,9 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
             setContentView(R.layout.activity_content_tip);
         else if (contentType == 3) {
             setContentView(R.layout.activity_content_tip_type3);
-        } else if (contentType == 18) {
-            setContentView(R.layout.activity_content_tip_list1);
         } else if (contentType == 19) {
+            setContentView(R.layout.activity_content_tip_list1);
+        } else if (contentType == 18) {
             setContentView(R.layout.activity_content_tip_list1);
         } else if (contentType == 26) {
             setContentView(R.layout.activity_content_web);
@@ -185,7 +185,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
         }
     }
 
-    public void initRV() {
+    public void initRV2() {
 
         if (mList.get(0).Attachments().get(0).AttachmentType() != 0)
             attachmentType = mList.get(0).Attachments().get(0).AttachmentType();
@@ -246,7 +246,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
 
     }
 
-    public void initRV2() {
+    public void initRV() {
 
         if (mList.get(0).Attachments().get(0).AttachmentType() != 0)
             attachmentType = mList.get(0).Attachments().get(0).AttachmentType();

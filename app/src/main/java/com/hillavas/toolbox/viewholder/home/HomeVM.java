@@ -52,6 +52,9 @@ public class HomeVM extends BaseVHViewModel<ItemHomeList> {
          return mObject.ContentType();
         return 1000;
     }
+    int getAttachmentSize (){
+        return mObject.Attachments().size();
+    }
 
 
 }

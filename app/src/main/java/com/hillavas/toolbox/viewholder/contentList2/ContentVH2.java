@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseViewHolder;
-import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.viewholder.contentList1.ContentVHAction1;
 import com.hillavas.toolbox.viewholder.contentList1.ContentVM1;
@@ -24,8 +23,8 @@ import io.reactivex.subjects.PublishSubject;
 
 public class ContentVH2 extends BaseViewHolder<ContentVHAction2, ItemContentList,ContentVM2> {
 
-    @Inject
-    protected DBManager mDBManager;
+//    @Inject
+//    protected DBManager mDBManager;
 
 
     @BindView(R.id.drawee_row_item_ontent_img_1)

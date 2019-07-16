@@ -23,7 +23,6 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseDaggerCompatActivity;
-import com.hillavas.toolbox.dbModel.ItemModel;
 import com.hillavas.toolbox.rvdivider.BottomOffsetDecoration;
 import com.hillavas.toolbox.rvdivider.GridDividerItemDecorationFixed;
 import com.hillavas.toolbox.rvdivider.SimpleItemDivider;
@@ -50,7 +49,6 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
 
 
     List<ItemHomeList> homeList = new ArrayList<>();
-    List<ItemModel> _homeList = new ArrayList<>();
     SettingModel setting;
     String bg_color ;
     String main_color ;
@@ -155,6 +153,11 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
 
             if (state.list != null) {
                 homeList = state.list;
+                homeList.add(homeList.get(0));
+                homeList.add(homeList.get(0));
+                homeList.add(homeList.get(0));
+                homeList.add(homeList.get(0));
+//                homeList.add(homeList.get(0));
 //                if ((homeList.size() % 3) == 2)
 //
 //                    homeList.add(ItemHomeList.createItemHomeList(0, 0, true, "بزودی ...", false, null));

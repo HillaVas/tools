@@ -6,30 +6,18 @@ import android.net.Uri;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewGroup;
-
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.android.flexbox.AlignSelf;
-import com.google.android.flexbox.FlexboxLayoutManager;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseViewHolder;
-import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.servermodel.ItemContentList;
-import com.hillavas.toolbox.servermodel.ItemHomeList;
-import com.hillavas.toolbox.utils.IntentUtils;
-import com.hillavas.toolbox.viewholder.home.HomeVHAction;
-import com.hillavas.toolbox.viewholder.home.HomeVM;
-
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.subjects.PublishSubject;
 
 public class ContentVH1 extends BaseViewHolder<ContentVHAction1, ItemContentList,ContentVM1> {
 
-    @Inject
-    protected DBManager mDBManager;
+//    @Inject
+//    protected DBManager mDBManager;
 
 
     @BindView(R.id.drawee_row_item_ontent_img_1)

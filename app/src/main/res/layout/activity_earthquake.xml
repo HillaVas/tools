@@ -35,7 +35,7 @@
                     android:text="جعبه ابزار"
                     android:textColor="@color/colorWhite"
                     android:textStyle="bold"
-                    app:fontFamily="@font/shabnam_fd" />
+                    app:fontFamily="@font/shabnam_e" />
 
                 <android.support.v7.widget.AppCompatImageButton
                     android:id="@+id/img_btn_login_main"

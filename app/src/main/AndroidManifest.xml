@@ -30,10 +30,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+        <!--<activity
             android:name="ir.adad.client.AdadActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.Translucent" />
+            android:theme="@android:style/Theme.Translucent" />-->
 
         <activity android:name=".activity.listActivity.ListActivity" />
         <activity
@@ -50,6 +50,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.tools.AmlakRahnEjareforushActivity"
+            android:configChanges="keyboard|keyboardHidden"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.earthquake.EarthquakeActivity"

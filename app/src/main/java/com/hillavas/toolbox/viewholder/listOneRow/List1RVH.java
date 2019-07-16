@@ -13,7 +13,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.activity.mainActivity.MainActivity;
 import com.hillavas.toolbox.base.BaseViewHolder;
-import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 import com.hillavas.toolbox.utils.IntentUtils;
 
@@ -28,8 +27,8 @@ import static android.support.v4.content.ContextCompat.startActivity;
 
 public class List1RVH extends BaseViewHolder<List1RVHAction, ItemHomeList,List1RVM> {
 
-    @Inject
-    protected DBManager mDBManager;
+//    @Inject
+//    protected DBManager mDBManager;
 
 
     @BindView(R.id.drawee_row_home_img)
@@ -104,6 +103,7 @@ public class List1RVH extends BaseViewHolder<List1RVHAction, ItemHomeList,List1R
 
                         case  21   :
                             IntentUtils.openMirror(context);
+                            break;
 
 
                         case  13   :

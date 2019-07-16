@@ -8,7 +8,6 @@ import android.view.View;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseViewHolder;
-import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 import com.hillavas.toolbox.utils.IntentUtils;
 
@@ -22,9 +21,9 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
 
 
 
-
-    @Inject
-    protected DBManager mDBManager;
+//
+//    @Inject
+//    protected DBManager mDBManager;
 
 
     @BindView(R.id.drawee_row_home_img)
@@ -99,6 +98,18 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
 
                     case  13   :
                         IntentUtils.openBarCodeActivity(context,mVM.getCategoryId(),mVM.getContentType());
+                        break;
+
+                    case 18:
+                        IntentUtils.openContentTip(context,mVM.getCategoryId(),mVM.getContentType());
+                        break;
+
+                    case 19:
+                        IntentUtils.openContentTip(context,mVM.getCategoryId(),mVM.getContentType());
+                        break;
+
+                    case 3:
+                        IntentUtils.openContentTip(context,mVM.getCategoryId(),mVM.getContentType());
                         break;
 
 //                    default:

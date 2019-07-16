@@ -15,21 +15,16 @@ import com.google.android.flexbox.AlignSelf;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseViewHolder;
-import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
 import com.hillavas.toolbox.utils.IntentUtils;
-import com.hillavas.toolbox.utils.Utils;
-
-import javax.inject.Inject;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.subjects.PublishSubject;
 
 public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
 
-    @Inject
-    protected DBManager mDBManager;
+//    @Inject
+//    protected DBManager mDBManager;
 
 
 
@@ -76,39 +71,36 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
         }
 
 
-//        else if (getAdapterPosition()%3 == 2){
-//            draweeRowHomeImg.setAspectRatio(1f);
-//        }
+       if (mVM.getAttachmentSize ()!=0){
+           if (!mVM.getImage("").equals("")){
 
-
-       if (!mVM.getImage("").equals("")){
-
-           Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("x"));
-           draweeRowHomeImg.setImageURI(uri);
-           if (mVM.getShowName())
-             txtRowItemName.setText(mVM.getName());
+               Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api"+mVM.getImage("x"));
+               draweeRowHomeImg.setImageURI(uri);
+               if (mVM.getShowName())
+                   txtRowItemName.setText(mVM.getName());
 //            draweeRowHomeImg.setImageResource(uri);
 
-            ViewGroup.LayoutParams lp = draweeRowHomeImg.getLayoutParams();
-              if (lp instanceof FlexboxLayoutManager.LayoutParams) {
-                 FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
-                 flexboxLp.setFlexGrow(1.0f);
-                 flexboxLp.setAlignSelf(AlignSelf.AUTO);
-              }
-       }
-        else{
-           Uri myUri = Uri.parse(mVM.getImage("x"));
-            draweeRowHomeImg.setImageURI(myUri);
-//            draweeRowHomeImg.setImageURI(mVM.getImage());
-           ViewGroup.LayoutParams lp = draweeRowHomeImg.getLayoutParams();
-           if (lp instanceof FlexboxLayoutManager.LayoutParams) {
-               FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
-               flexboxLp.setFlexGrow(1.0f);
-               flexboxLp.setAlignSelf(AlignSelf.FLEX_END);
+               ViewGroup.LayoutParams lp = draweeRowHomeImg.getLayoutParams();
+               if (lp instanceof FlexboxLayoutManager.LayoutParams) {
+                   FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
+                   flexboxLp.setFlexGrow(1.0f);
+                   flexboxLp.setAlignSelf(AlignSelf.AUTO);
+               }
            }
-    }
-//            draweeRowHomeImg.setImageResource(R.drawable.drawer_cover);
-//           draweeRowHomeImg.setImageResource(mVM.getImageRes());
+           else{
+               Uri myUri = Uri.parse(mVM.getImage("x"));
+               draweeRowHomeImg.setImageURI(myUri);
+//            draweeRowHomeImg.setImageURI(mVM.getImage());
+               ViewGroup.LayoutParams lp = draweeRowHomeImg.getLayoutParams();
+               if (lp instanceof FlexboxLayoutManager.LayoutParams) {
+                   FlexboxLayoutManager.LayoutParams flexboxLp = (FlexboxLayoutManager.LayoutParams) lp;
+                   flexboxLp.setFlexGrow(1.0f);
+                   flexboxLp.setAlignSelf(AlignSelf.FLEX_END);
+               }
+           }
+         }
+
+
     }
 
     @Override
@@ -129,7 +121,7 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
                         ratio = 2;
                         break;
                     case "خودرو" :
-                        row = 2;
+                        row = 1;
                         ratio = 2;
                         break;
                     case "ترافیک" :

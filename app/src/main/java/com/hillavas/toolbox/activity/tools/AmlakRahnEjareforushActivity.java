@@ -92,6 +92,7 @@ public class AmlakRahnEjareforushActivity extends AppCompatActivity {
             initUI(kharid);
         }
 
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         getPref();
         toolbar.setBackgroundColor(Color.parseColor(setting.AppMainColor()));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

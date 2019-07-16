@@ -1,7 +1,6 @@
 package com.hillavas.toolbox.base;
 
 
-import com.hillavas.toolbox.manager.db.DBManager;
 import com.hillavas.toolbox.manager.pref.PrefManager;
 import com.hillavas.toolbox.manager.rest.RestManager;
 import com.hillavas.toolbox.rxutils.SchedulersFacade;
@@ -12,8 +11,8 @@ import io.reactivex.disposables.CompositeDisposable;
 
 public class BaseInteractor {
 
-    @Inject
-    protected DBManager mDBManager;
+//    @Inject
+//    protected DBManager mDBManager;
     @Inject
     protected PrefManager mPrefManager;
     @Inject
