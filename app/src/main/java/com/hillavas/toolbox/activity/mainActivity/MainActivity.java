@@ -153,7 +153,7 @@ public class MainActivity extends BaseDaggerCompatActivity<MainActivityState, Ma
 
             if (state.list != null) {
                 homeList = state.list;
-                
+
 //                if ((homeList.size() % 3) == 2)
 //
 //                    homeList.add(ItemHomeList.createItemHomeList(0, 0, true, "بزودی ...", false, null));

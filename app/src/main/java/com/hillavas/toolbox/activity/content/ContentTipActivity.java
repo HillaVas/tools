@@ -57,8 +57,11 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
     Provider<ContentList1RVAdapter> mMainRVAdapterProvider;
     @Inject
     Provider<ContentList2RVAdapter> mMainRVAdapterProvider2;
+    @Inject
+    Provider<ContentList3RVAdapter> mMainRVAdapterProvider3;
     ContentList1RVAdapter mContentRVAdapter1;
     ContentList2RVAdapter mContentRVAdapter2;
+    ContentList3RVAdapter mContentRVAdapter3;
 
 
     @Inject
@@ -112,7 +115,9 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
                     Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api" + mList.get(0).Attachments().get(0).RelativeAddress());
                     contentImageBig.setImageURI(uri);
 
-                } else if (contentType == 18) {
+                }else if(contentType == 3){
+                    initRV3();
+                }else if (contentType == 18) {
                     initRV();
                 } else if (contentType == 19) {
                     initRV2();
@@ -143,7 +148,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
         if (contentType == 0)
             setContentView(R.layout.activity_content_tip);
         else if (contentType == 3) {
-            setContentView(R.layout.activity_content_tip_type3);
+            setContentView(R.layout.activity_content_tip_list1);
         } else if (contentType == 19) {
             setContentView(R.layout.activity_content_tip_list1);
         } else if (contentType == 18) {
@@ -285,6 +290,67 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
         });
 
         Disposable disposable = mContentRVAdapter2.getClickPS()
+                .subscribe(action -> {
+                    Timber.d("action add to play list");
+                    int i = action.getAdapterPosition();
+                    ItemContentList videoModel = (ItemContentList) getIntent().getParcelableExtra("parcel_data_video_model");
+//                    int s = mList.get(i).id();
+
+
+//                    String videoId = "99";
+//
+//                    mViewModel.addPlaylist(i, videoId);
+//                    finish();
+
+
+                }, t ->
+                {
+                    Timber.e(t, "FAVOURITE sending video list action failed");
+                });
+
+        mDisposable.add(disposable);
+
+    }
+
+    public void initRV3() {
+
+        if (mList.get(0).Attachments().get(0).AttachmentType() != 0)
+            attachmentType = mList.get(0).Attachments().get(0).AttachmentType();
+        int divider = 0;
+        mContentRVAdapter3 = mMainRVAdapterProvider3.get();
+        mContentRVAdapter3 = mMainRVAdapterProvider3.get();
+        mContentRVAdapter3.submitList(mList);
+        mContentRVAdapter3.submitList(mList);
+
+
+        mGridLayoutManager = new GridLayoutManager(this, 1);
+//        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(numberRow,StaggeredGridLayoutManager.VERTICAL);
+//        mLinearLayoutManager = new LinearLayoutManager(this);
+        if (attachmentType == 1)
+            rListContent1.setAdapter(mContentRVAdapter3);
+//        else if(attachmentType==3)
+//            rListHome.setAdapter(mMainRVAdapter);
+        else {
+            mContentRVAdapter3.submitList(mList);
+            rListContent1.setAdapter(mContentRVAdapter3);
+
+        }
+
+        rListContent1.setLayoutManager(mGridLayoutManager);
+//        rListHome.setLayoutManager(mGridLayoutManager);
+//        rListHome.setLayoutManager(mLinearLayoutManager);
+        rListContent1.addItemDecoration(new SimpleItemDivider(divider, divider, 0, divider));
+        rListContent1.addItemDecoration(new SimpleItemDivider(0, 0, divider, 0), 0);
+        rListContent1.addOnScrollListener(new EndlessRecyclerViewScrollListener(mGridLayoutManager) {
+            //        rListHome.addOnScrollListener(new EndlessRecyclerViewScrollListener(mGridLayoutManager) {
+//        rListHome.addOnScrollListener(new EndlessRecyclerViewScrollListener(mLinearLayoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+//                mViewModel.incrementPage();
+            }
+        });
+
+        Disposable disposable = mContentRVAdapter3.getClickPS()
                 .subscribe(action -> {
                     Timber.d("action add to play list");
                     int i = action.getAdapterPosition();

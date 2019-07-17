@@ -191,6 +191,12 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
 
             }
 
+            if (mVM.getContentType()== 3)
+            {
+                IntentUtils.openContentTip(context,mVM.getCategoryId(),mVM.getContentType());
+
+            }
+
 
 //            IntentUtils.openListL2(context,mVM.getName(),row,mVM.getCategoryId(),ratio);
 
