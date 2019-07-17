@@ -32,7 +32,7 @@
             tools:background="@android:color/black" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/txtItemContentName_list_1"
+            android:id="@+id/txtItemContentName_list_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/drawee_row_item_ontent_img_1"
@@ -45,11 +45,111 @@
             android:textColor="@android:color/black"
             tools:text="Rap Caviar" />
 
+        <LinearLayout
+            android:id="@+id/layoutmidle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/drawee_row_item_ontent_img_1"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/svg_like"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_svg_favorite"
+                        android:layout_marginLeft="20dp"/>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtItemContentlikecount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:gravity="right"
+                        android:maxLines="2"
+                        android:text=" 420 "
+                        android:textColor="@android:color/black"
+                        tools:text="320" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="bottom|center">
+                    <ImageView
+                        android:id="@+id/svg_icon_eye"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_svg_eye"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"/>
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/txtItemContentViewCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text=" 570 "
+                        android:textColor="@android:color/black"
+                        tools:text="570" />
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="right">
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/txtItemContentName_list_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingTop="20dp"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:gravity="right"
+                    android:maxLines="2"
+                    android:text=" تست "
+                    android:textColor="@android:color/black"
+                    tools:text="Rap Caviar" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/txt_row_item_ontent_1"
             android:layout_width="match_parent"
             android:layout_height="130dp"
-            android:layout_below="@+id/drawee_row_item_ontent_img_1"
+            android:layout_below="@+id/layoutmidle"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="29dp"

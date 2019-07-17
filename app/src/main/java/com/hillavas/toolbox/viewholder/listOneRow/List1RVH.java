@@ -64,12 +64,12 @@ public class List1RVH extends BaseViewHolder<List1RVHAction, ItemHomeList,List1R
             Context context =v.getContext();
             if (mVM.getHasChild())
             {
-                switch (mVM.getName()){
-                    case  "اطلاعات و اخبار وام"   :
+                switch (mVM.getCategoryType()){
+                    case  0   :
                         IntentUtils.openListL2(context,mVM.getName(),1,mVM.getCategoryId(),3 );
                         break;
 
-                    case  "کنداکتور تلویزیون"   :
+                    case  3   :
                         IntentUtils.openListL2(context,mVM.getName(),3,mVM.getCategoryId(),1 );
                         break;
 
@@ -122,17 +122,18 @@ public class List1RVH extends BaseViewHolder<List1RVHAction, ItemHomeList,List1R
 
 
                     }
-                }else {
-                    switch (mVM.getName()){
-                        case "مبدل شماره شبا" :
-                            IntentUtils.openWeb(context,"https://samanbourse.com/pishkhan/shaba");
-                            break;
-
-                        case "سود بانکی و قسط وام" :
-                            IntentUtils.openWeb(context,"https://kitset.ir/financial/loan-profits");
-                            break;
-                    }
                 }
+//                else {
+//                    switch (mVM.getName()){
+//                        case "مبدل شماره شبا" :
+//                            IntentUtils.openWeb(context,"https://samanbourse.com/pishkhan/shaba");
+//                            break;
+//
+//                        case "سود بانکی و قسط وام" :
+//                            IntentUtils.openWeb(context,"https://kitset.ir/financial/loan-profits");
+//                            break;
+//                    }
+//                }
 
             }
         });

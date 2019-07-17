@@ -62,8 +62,8 @@ public class ListsVH extends BaseViewHolder<ListsVHAction, ItemHomeList,ListsVM>
             Context context =v.getContext();
             if (mVM.getHasChild())
             {
-                switch (mVM.getName()){
-                    case  "اطلاعات و اخبار وام"   :
+                switch (mVM.getCategoryType()){
+                    case  0   :
                         IntentUtils.openListL2(context,mVM.getName(),1,mVM.getCategoryId(),3);
 
                 }

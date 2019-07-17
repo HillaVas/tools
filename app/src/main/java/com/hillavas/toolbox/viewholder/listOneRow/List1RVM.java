@@ -49,6 +49,9 @@ public class List1RVM extends BaseVHViewModel<ItemHomeList> {
     int getCategoryId(){
         return mObject.CategoryId();
     }
+    int getCategoryType(){
+        return mObject.CategoryType();
+    }
 
     int getAttachmentType(){
         List<AttachmentsModel> atModel =mObject.Attachments();

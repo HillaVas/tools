@@ -43,6 +43,9 @@ public class HomeVM extends BaseVHViewModel<ItemHomeList> {
     int getCategoryId(){
         return mObject.CategoryId();
     }
+    int getCategoryType(){
+        return mObject.CategoryType();
+    }
     String getName(){
         return mObject.Name();
     }

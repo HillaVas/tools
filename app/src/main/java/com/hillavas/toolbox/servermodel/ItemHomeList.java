@@ -20,6 +20,10 @@ public abstract class ItemHomeList implements Parcelable {
     @Json(name = "CategoryId")
     public abstract int CategoryId();
 
+
+    @Json(name = "CategoryType")
+    public abstract int CategoryType();
+
     @Nullable
     @Json(name = "ContentType")
     public abstract Integer ContentType();

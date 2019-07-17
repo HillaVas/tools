@@ -115,32 +115,32 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
             if (mVM.getHasChild())
             {
 
-                switch ((mVM.getName())){
-                    case "املاک" :
+                switch ((mVM.getCategoryType())){
+                    case 5 :
                         row = 1;
                         ratio = 2;
                         break;
-                    case "خودرو" :
+                    case 4 :
                         row = 1;
                         ratio = 2;
                         break;
-                    case "ترافیک" :
+                    case 6 :
                         row = 1;
                         ratio = 1;
                         break;
-                    case "بانک" :
+                    case 1 :
                         row = 1;
                         ratio = 1;
                         break;
-                    case "موبایل" :
+                    case 2 :
                         row = 1;
                         ratio = 1;
                         break;
-                    case "مدیا" :
+                    case 3 :
                         row = 1;
                         ratio = 1;
                         break;
-                    case "ابزار" :
+                    case 10 :
                         row = 2;
                         ratio = 1;
                         break;
@@ -149,35 +149,31 @@ public class HomeVH extends BaseViewHolder<HomeVHAction, ItemHomeList,HomeVM> {
             }
             else
             {
-                switch (mVM.getName()){
+                switch (mVM.getCategoryType()){
 
 
 
-                    case "املاک" :
+                    case 5 :
                         IntentUtils.openAmlakRahnForush(context,39);
                         break;
-                    case "خودرو" :
+                    case 4 :
                         row = 2;
                         ratio = 2;
                         break;
-                    case "ترافیک" :
+                    case 6 :
                         row = 1;
                         ratio = 1;
                         break;
-                    case "فال" :
+                    case 8 :
                         row = 3;
                         ratio = 1;
                         break;
-                    case "ابزار" :
+                    case 10 :
 
                         break;
-                    case "ریمایندر" :
+                    case 11 :
                         Intent i = new Intent(AlarmClock.ACTION_SET_ALARM);
                        context.startActivity(i);
-
-                        break;
-
-                    case "تعبیر خواب" :
 
                         break;
 
