@@ -51,6 +51,8 @@ public class ContentVM1 extends BaseVHViewModel<ItemContentList> {
     String getTxt(){
         return mObject.Desc();
     }
+    String getTxtItemContentlikecount(){return String.valueOf(mObject.LikeCount());}
+    String getTxtItemContentViewCount(){return String.valueOf(mObject.ViewCount());}
 //    boolean getShowName(){return mObject.ShowName();}
 
 

@@ -18,6 +18,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -47,6 +48,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
 
     public static final String CATEGGORY_ID_CONTENTTIP = "category_id_contenttip";
     public static final String CONTENT_TYPE = "Content_Type";
+    boolean isLike = false;
 
 //    @Inject
 //    Provider<ContentList1RVAdapter> mContentL1RVAdapterProvider;
@@ -66,7 +68,14 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
 
     @Inject
     CompositeDisposable mDisposable;
-
+//    @BindView(R.id.txtContentTipName1)
+//    AppCompatTextView txtContentTipName1;
+    @BindView(R.id.svg_like)
+    ImageButton svgLike;
+    @BindView(R.id.txtItemContentlikecount)
+    AppCompatTextView txtItemContentlikecount;
+    @BindView(R.id.txtItemContentViewCount)
+    AppCompatTextView txtItemContentViewCount;
 
 
     private int categoryId = 0;
@@ -112,12 +121,19 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
                 if (contentType == 0) {
                     txtContentTipDetail.setText(mList.get(0).Desc());
                     txtContentTipName.setText(mList.get(0).Title());
+                    txtItemContentlikecount.setText(String.valueOf(mList.get(0).LikeCount()));
+                    txtItemContentViewCount.setText(String.valueOf(mList.get(0).ViewCount()));
+                    if (mList.get(0).IsLiked())
+                    {
+                        isLike = true;
+                        svgLike.setImageResource(R.drawable.ic_svg_favorite);
+                    }
                     Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api" + mList.get(0).Attachments().get(0).RelativeAddress());
                     contentImageBig.setImageURI(uri);
 
-                }else if(contentType == 3){
+                } else if (contentType == 3) {
                     initRV3();
-                }else if (contentType == 18) {
+                } else if (contentType == 18) {
                     initRV();
                 } else if (contentType == 19) {
                     initRV2();
@@ -148,7 +164,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
         if (contentType == 0)
             setContentView(R.layout.activity_content_tip);
         else if (contentType == 3) {
-            setContentView(R.layout.activity_content_tip_list1);
+            setContentView(R.layout.activity_content_tip_list3);
         } else if (contentType == 19) {
             setContentView(R.layout.activity_content_tip_list1);
         } else if (contentType == 18) {
@@ -384,4 +400,20 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
     }
 
 
+    @OnClick(R.id.svg_like)
+    public void onViewClickedLike() {
+
+        if (isLike)
+        {
+            isLike = false;
+            svgLike.setImageResource(R.drawable.ic_svg_unfavorite);
+            int count =Integer.valueOf((String) txtItemContentlikecount.getText());
+            txtItemContentlikecount.setText(String.valueOf(count-1));
+        }else {
+            isLike = true;
+            svgLike.setImageResource(R.drawable.ic_svg_favorite);
+            int count =Integer.valueOf((String) txtItemContentlikecount.getText());
+            txtItemContentlikecount.setText(String.valueOf(count+1));
+        }
+    }
 }

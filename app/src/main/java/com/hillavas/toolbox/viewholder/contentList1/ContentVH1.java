@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.support.v7.widget.AppCompatTextView;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageButton;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseViewHolder;
@@ -26,6 +28,12 @@ public class ContentVH1 extends BaseViewHolder<ContentVHAction1, ItemContentList
     AppCompatTextView txtItemContentNameList1;
     @BindView(R.id.txt_row_item_ontent_1)
     AppCompatTextView txtRowItemOntent1;
+    @BindView(R.id.svg_like)
+    ImageButton svgLike;
+    @BindView(R.id.txtItemContentlikecount)
+    AppCompatTextView txtItemContentlikecount;
+    @BindView(R.id.txtItemContentViewCount)
+    AppCompatTextView txtItemContentViewCount;
 
 
     DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -59,6 +67,8 @@ public class ContentVH1 extends BaseViewHolder<ContentVHAction1, ItemContentList
         draweeRowItemOntentImg1.setImageURI(uri);
         txtItemContentNameList1.setText(mVM.getTitle());
         txtRowItemOntent1.setText(mVM.getTxt());
+        txtItemContentlikecount.setText(mVM.getTxtItemContentlikecount());
+        txtItemContentViewCount.setText(mVM.getTxtItemContentViewCount());
 
     }
 

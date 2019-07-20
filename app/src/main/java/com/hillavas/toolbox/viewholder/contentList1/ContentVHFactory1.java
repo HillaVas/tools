@@ -4,9 +4,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.google.android.flexbox.FlexboxLayout;
 import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.ViewHolderFactory;
 
@@ -18,7 +17,7 @@ import butterknife.OnClick;
 
 public class ContentVHFactory1 implements ViewHolderFactory<ContentVH1> {
 
-int categuryId ;
+    int categuryId;
 
 
     @Inject
@@ -26,19 +25,17 @@ int categuryId ;
     }
 
     @Override
-    public ContentVH1 create(ViewGroup parent ) {
+    public ContentVH1 create(ViewGroup parent) {
 
-        if (categuryId==19){
+        if (categuryId == 19) {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_list_content_2, parent, false);
             return new ContentVH1(view, new ContentVM1());
-        }else {
+        } else {
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_list_content_1, parent, false);
             return new ContentVH1(view, new ContentVM1());
         }
 
     }
 
-    @OnClick(R.id.drawee_row_home_img)
-    public void onViewClicked() {
-    }
+
 }

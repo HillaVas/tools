@@ -6,4 +6,5 @@ public class ContentVHAction1 extends BaseViewHolderAction {
     public ContentVHAction1(int adapterPosition) {
         super(adapterPosition);
     }
+
 }
