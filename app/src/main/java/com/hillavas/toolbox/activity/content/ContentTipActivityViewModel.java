@@ -45,6 +45,28 @@ public class ContentTipActivityViewModel extends BaseViewModel<ContentTipActivit
 
     }
 
+    public void getContentTipLike(int conId) {
+
+        Disposable disposable = mInteractor.getContentTipLike(conId).subscribe(state ->
+
+                {
+                    Timber.d("explore state received: %s", state.toString());
+                    showState(state);
+
+                }
+                , new RxRetrofitErrorConsumer() {
+                    @Override
+                    public void handleError(Throwable throwable, int id) {
+                        Timber.e(throwable, "receiving explore state failed");
+                        showState(ContentTipActivityState.createFailedState());
+
+                    }
+                });
+
+        mCompositeDisposable.add(disposable);
+
+    }
+
     private void showState(ContentTipActivityState state) {
         if (state.status == ContentTipActivityState.STATUS_SUCCESS) {
             mStateLD.postValue(state);

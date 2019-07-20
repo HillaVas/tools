@@ -4,6 +4,7 @@ import com.hillavas.toolbox.servermodel.BaseModel;
 import com.hillavas.toolbox.servermodel.EarthquakeItem;
 import com.hillavas.toolbox.servermodel.ItemContentList;
 import com.hillavas.toolbox.servermodel.ItemHomeList;
+import com.hillavas.toolbox.servermodel.LikeModel;
 import com.hillavas.toolbox.servermodel.SettingModel;
 
 import java.util.List;
@@ -29,6 +30,9 @@ public interface ToolBoxApi {
 
     @GET("toolbox/api/content/get")
     Single<Response<BaseModel<List<ItemContentList>>>> getContentTip(@Header("Token") String token, @Query("pageNumber") int page, @Query("categoryId") int CategoryId );
+
+    @GET("toolbox/api/content/LikeDislike")
+    Single<Response<LikeModel>> getContentLike(@Header("Token") String token, @Query("id") int ContentId );
 
     @GET("toolbox/api/content/GetEarthquakeInfo")
     Single<Response<BaseModel<List<EarthquakeItem>>>> getEarthquakeList(@Header("Token") String token, @Query("pageNumber") int page);

@@ -35,5 +35,26 @@ public class ContentTipActivityInteractor extends BaseInteractor {
                 });
     }
 
+    public Single<ContentTipActivityState> getContentTipLike(int conId) {
+        return mRestManager.getContentLike(conId,"2e8dfb86-92b2-4e43-9209-6f299cc4ef2f")
+                .map(baseModelResponse -> {
+                    if (baseModelResponse.code() == 200 && baseModelResponse.body().IsSuccessful() ) {
+                        return ContentTipActivityState.createSuccessState(baseModelResponse.body());
+                    }
+
+                    return ContentTipActivityState.createFailedState();
+                })
+                .retry(new DefaultRetrofitRetryHandler())
+                .onErrorReturn(t -> {
+//                    Timber.e(t,"getting cats failed");
+                    return ContentTipActivityState.createFailedState();
+                })
+                .doOnSuccess(state -> {
+                    if (state.status == ContentTipActivityState.STATUS_SUCCESS) {
+                        mState =null;
+                    }
+                });
+    }
+
 
 }

@@ -27,6 +27,7 @@ import com.hillavas.toolbox.R;
 import com.hillavas.toolbox.base.BaseDaggerCompatActivity;
 import com.hillavas.toolbox.rvdivider.SimpleItemDivider;
 import com.hillavas.toolbox.servermodel.ItemContentList;
+import com.hillavas.toolbox.servermodel.LikeModel;
 import com.hillavas.toolbox.servermodel.SettingModel;
 import com.hillavas.toolbox.utils.EndlessRecyclerViewScrollListener;
 
@@ -49,6 +50,7 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
     public static final String CATEGGORY_ID_CONTENTTIP = "category_id_contenttip";
     public static final String CONTENT_TYPE = "Content_Type";
     boolean isLike = false;
+    LikeModel likeModel ;
 
 //    @Inject
 //    Provider<ContentList1RVAdapter> mContentL1RVAdapterProvider;
@@ -111,42 +113,64 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
     public void handleState(ContentTipActivityState state) {
         if (state.status == ContentTipActivityState.STATUS_SUCCESS) {
 
+            if(state.likeModel!=null){
 
-            mList = state.list;
-            if (mList.size() != 0) {
+                if (!state.likeModel.IsSuccessful())
+                {
+                    if (isLike){
+                        isLike = false;
+                        svgLike.setImageResource(R.drawable.ic_svg_unfavorite);
+                        int count =Integer.valueOf((String) txtItemContentlikecount.getText());
+                        txtItemContentlikecount.setText(String.valueOf(count-1));
+                    }else {
+                        isLike = true;
+                        svgLike.setImageResource(R.drawable.ic_svg_favorite);
+                        int count =Integer.valueOf((String) txtItemContentlikecount.getText());
+                        txtItemContentlikecount.setText(String.valueOf(count+1));
+                    }
+                }
+
+
+
+            }else {
+                mList = state.list;
+                if (mList.size() != 0) {
 
 
 //                if (contentType == 3)
 //                    imgContentImageBig.setImageResource(R.drawable.mobile_fix_code2);
-                if (contentType == 0) {
-                    txtContentTipDetail.setText(mList.get(0).Desc());
-                    txtContentTipName.setText(mList.get(0).Title());
-                    txtItemContentlikecount.setText(String.valueOf(mList.get(0).LikeCount()));
-                    txtItemContentViewCount.setText(String.valueOf(mList.get(0).ViewCount()));
-                    if (mList.get(0).IsLiked())
-                    {
-                        isLike = true;
-                        svgLike.setImageResource(R.drawable.ic_svg_favorite);
+                    if (contentType == 0) {
+                        txtContentTipDetail.setText(mList.get(0).Desc());
+                        txtContentTipName.setText(mList.get(0).Title());
+                        txtItemContentlikecount.setText(String.valueOf(mList.get(0).LikeCount()));
+                        txtItemContentViewCount.setText(String.valueOf(mList.get(0).ViewCount()));
+                        if (mList.get(0).IsLiked())
+                        {
+                            isLike = true;
+                            svgLike.setImageResource(R.drawable.ic_svg_favorite);
+                        }
+                        Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api" + mList.get(0).Attachments().get(0).RelativeAddress());
+                        contentImageBig.setImageURI(uri);
+
+                    } else if (contentType == 3) {
+                        initRV3();
+                    } else if (contentType == 18) {
+                        initRV();
+                    } else if (contentType == 19) {
+                        initRV2();
+                    } else if (contentType == 26) {
+                        WebSettings webSettings = www1.getSettings();
+                        webSettings.setJavaScriptEnabled(true);
+
+                        www1.loadUrl(mList.get(0).InternetAddress());
                     }
-                    Uri uri = Uri.parse("http://79.175.138.89:8088/toolbox/api" + mList.get(0).Attachments().get(0).RelativeAddress());
-                    contentImageBig.setImageURI(uri);
 
-                } else if (contentType == 3) {
-                    initRV3();
-                } else if (contentType == 18) {
-                    initRV();
-                } else if (contentType == 19) {
-                    initRV2();
-                } else if (contentType == 26) {
-                    WebSettings webSettings = www1.getSettings();
-                    webSettings.setJavaScriptEnabled(true);
-
-                    www1.loadUrl(mList.get(0).InternetAddress());
+                } else {
+                    finish();
                 }
-
-            } else {
-                finish();
             }
+
+
 
         }
     }
@@ -403,17 +427,20 @@ public class ContentTipActivity extends BaseDaggerCompatActivity<ContentTipActiv
     @OnClick(R.id.svg_like)
     public void onViewClickedLike() {
 
+        mViewModel.getContentTipLike(mList.get(0).ContentId());
         if (isLike)
         {
             isLike = false;
             svgLike.setImageResource(R.drawable.ic_svg_unfavorite);
             int count =Integer.valueOf((String) txtItemContentlikecount.getText());
             txtItemContentlikecount.setText(String.valueOf(count-1));
+
         }else {
             isLike = true;
             svgLike.setImageResource(R.drawable.ic_svg_favorite);
             int count =Integer.valueOf((String) txtItemContentlikecount.getText());
             txtItemContentlikecount.setText(String.valueOf(count+1));
+
         }
     }
 }

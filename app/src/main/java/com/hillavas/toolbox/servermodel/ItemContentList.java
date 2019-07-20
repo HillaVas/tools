@@ -17,6 +17,10 @@ import java.util.List;
 public abstract class ItemContentList implements Parcelable {
 
 
+
+    @Json(name = "ContentId")
+    public abstract int ContentId();
+
     @Json(name = "Title")
     public abstract String Title();
 
